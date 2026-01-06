@@ -1,0 +1,150 @@
+networks:
+  procurement-net:
+    driver: bridge
+
+volumes:
+  namenode-data:
+  datanode1-data:
+  datanode2-data:
+  postgres-data:
+
+services:
+  # HDFS NAMENODE
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: namenode
+    hostname: namenode
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    volumes:
+      - namenode-data:/hadoop/dfs/name
+      - ./data:/data
+    environment:
+      - CLUSTER_NAME=procurement_cluster
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - CORE_CONF_hadoop_http_staticuser_user=root
+      - HDFS_CONF_dfs_replication=2
+      - HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check=false
+      - HDFS_CONF_dfs_permissions_enabled=false
+      - HDFS_CONF_dfs_webhdfs_enabled=true
+    networks:
+      - procurement-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9870"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # HDFS DATANODE 1
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode1
+    hostname: datanode1
+    volumes:
+      - datanode1-data:/hadoop/dfs/data
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - CORE_CONF_hadoop_http_staticuser_user=root
+      - HDFS_CONF_dfs_replication=2
+    depends_on:
+      namenode:
+        condition: service_healthy
+    networks:
+      - procurement-net
+
+  # HDFS DATANODE 2
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode2
+    hostname: datanode2
+    volumes:
+      - datanode2-data:/hadoop/dfs/data
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - CORE_CONF_hadoop_http_staticuser_user=root
+      - HDFS_CONF_dfs_replication=2
+    depends_on:
+      namenode:
+        condition: service_healthy
+    networks:
+      - procurement-net
+
+  # POSTGRESQL
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres
+    hostname: postgres
+    ports:
+      - "5432:5438"
+    environment:
+      POSTGRES_DB: procurement_db
+      POSTGRES_USER: procurement_user
+      POSTGRES_PASSWORD: procurement_pass
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./sql/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./sql/02_master_data.sql:/docker-entrypoint-initdb.d/02_master_data.sql
+    networks:
+      - procurement-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U procurement_user -d procurement_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # TRINO (version simple SANS Hive Metastore)
+  trino:
+    image: trinodb/trino:400
+    container_name: trino
+    hostname: trino
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config/presto/config.properties:/etc/trino/config.properties
+      - ./config/presto/catalog:/etc/trino/catalog
+      - ./config/presto/core-site.xml:/etc/trino/core-site.xml
+    depends_on:
+      namenode:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - procurement-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/v1/info"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ORCHESTRATEUR
+  orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: orchestrator
+    hostname: orchestrator
+    volumes:
+      - ./scripts:/app/scripts
+      - ./data:/app/data
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./sql:/app/sql
+    environment:
+      - HDFS_NAMENODE=hdfs://namenode:9000
+      - PRESTO_HOST=trino
+      - PRESTO_PORT=8080
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=procurement_db
+      - POSTGRES_USER=procurement_user
+      - POSTGRES_PASSWORD=procurement_pass
+      - TZ=Africa/Casablanca
+    depends_on:
+      trino:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - procurement-net
+    command: tail -f /dev/null

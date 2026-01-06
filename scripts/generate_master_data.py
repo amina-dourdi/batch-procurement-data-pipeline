@@ -25,8 +25,7 @@ print(f"🚀 Starting Data Generation in '{OUTPUT_DIR}'...")
 print("--- Generating Suppliers ---")
 suppliers = []
 # Create IDs like SUP-001, SUP-002...
-#"7"---> "7".zfill(3) ---> "007"
-supplier_ids = [f"SUP-{str(i).zfill(3)}" for i in range(1, NUM_SUPPLIERS + 1)] 
+supplier_ids = [f"SUP-{str(i).zfill(3)}" for i in range(1, NUM_SUPPLIERS + 1)]
 
 for s_id in supplier_ids:
     suppliers.append({
@@ -34,7 +33,7 @@ for s_id in supplier_ids:
         "name": fake.company(),
         "country": fake.country(),
         "contact_email": fake.company_email(),
-        "location": fake.city() 
+        "location": fake.city()  # Added per your request
     })
 
 df_suppliers = pd.DataFrame(suppliers)
@@ -50,7 +49,7 @@ markets = []
 market_ids = [f"MKT-{str(i).zfill(3)}" for i in range(1, NUM_MARKETS + 1)]
 
 for m_id in market_ids:
-    markets.append({+
+    markets.append({
         "market_id": m_id,
         "location": fake.address().replace("\n", ", "), # Full address
         "type": random.choice(["Superstore", "Express", "Click & Collect"])
