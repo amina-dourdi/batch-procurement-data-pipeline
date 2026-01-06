@@ -30,17 +30,3 @@ docker-compose.override.yml
 # Divers
 *.tmp
 *.backup
-
-/test
-
-/config 
-docker-compose.yml
-
-Dockerfile
-
-/data
-/hadoop
-/logs
-/output
-/scripts
-/sql
