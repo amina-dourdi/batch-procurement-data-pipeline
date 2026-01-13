@@ -269,6 +269,7 @@ With it:
 ```bash
 docker exec -it orchestrator bash
 ```
+>procurement@orchestrator:/app$ 
 
 Then run:
 

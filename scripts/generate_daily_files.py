@@ -47,8 +47,10 @@ def main():
     hdfs_orders_dir = f"/raw/orders/{RUN_DATE}"
     hdfs.mkdirs(hdfs_orders_dir)
 
-    local_dir = os.path.join(DATA_ROOT, "raw", RUN_DATE)
-    os.makedirs(local_dir, exist_ok=True)
+    local_dir_orders = os.path.join(DATA_ROOT, "raw/orders", RUN_DATE)
+    local_dir_stock = os.path.join(DATA_ROOT, "raw/stock", RUN_DATE)
+    os.makedirs(local_dir_orders, exist_ok=True)
+    os.makedirs(local_dir_stock, exist_ok=True)
 
     print(f" Processing {len(market_ids)} markets...")
 
@@ -86,7 +88,7 @@ def main():
 
         # Define Paths
         filename = f"orders_{market_id}.avro"
-        local_path = os.path.join(local_dir, filename)
+        local_path = os.path.join(local_dir_orders, filename)
         hdfs_path = f"{hdfs_orders_dir}/{filename}"
 
         # --- CHAOS 3: BAD FORMAT (Corrupted File) ---
@@ -143,7 +145,7 @@ def main():
     df_stock = pd.DataFrame(stock_rows)
 
     # ---- LOCAL ----
-    local_stock = os.path.join(local_dir, "stock.avro")
+    local_stock = os.path.join(local_dir_stock, "stock.avro")
     pdx.to_avro(local_stock, df_stock)
 
     # ---- HDFS ----
