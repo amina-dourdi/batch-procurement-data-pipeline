@@ -12,6 +12,7 @@ logging.basicConfig(
     ]
 )
 
-def logger():
-    logger = logging.getLogger("DataQualityGuard")
+# def logger():
+#     logger = logging.getLogger("DataQualityGuard")
 
+log = logging.getLogger("DataQualityGuard")

@@ -3,7 +3,7 @@ import csv
 from datetime import datetime
 import os
 import psycopg2
-import logger 
+from logger import log as logger
 
 class DataQualityGuard:
     def __init__(self, batch_date, db_config):
