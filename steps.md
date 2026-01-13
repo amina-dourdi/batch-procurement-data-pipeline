@@ -190,13 +190,13 @@ DB_NAME="postgres"
 CSV_DIR="data/postgres_load"
 
 echo "=========================================="
-echo "🚀 [Step 1] Generating fresh data with Python..."
+echo " [Step 1] Generating fresh data with Python..."
 echo "=========================================="
 python scripts/generate_master_data.py
 
 echo ""
 echo "=========================================="
-echo "📦 [Step 2] Copying CSVs to Docker Container..."
+echo " [Step 2] Copying CSVs to Docker Container..."
 echo "=========================================="
 # Create a temp folder inside the container
 docker exec $CONTAINER_NAME mkdir -p /tmp/data_load
@@ -208,7 +208,7 @@ docker cp $CSV_DIR/products.csv $CONTAINER_NAME:/tmp/data_load/products.csv
 
 echo ""
 echo "=========================================="
-echo "🛠️ [Step 3] Recreating Tables & Importing Data..."
+echo " [Step 3] Recreating Tables & Importing Data..."
 echo "=========================================="
 
 # Pass SQL commands directly to the psql tool inside the container
@@ -314,6 +314,17 @@ If everything worked, you should see numbers matching your Python script (15 sup
 ```
 
 If you see this, **Success!** You have no problems.
+
+Also verify foreign keys consistency:
+
+```bash
+docker exec -i postgres psql -U procurement_user -d procurement_db -c "
+SELECT COUNT(*) AS invalid_products
+FROM products p
+LEFT JOIN suppliers s ON p.supplier_id = s.supplier_id
+WHERE s.supplier_id IS NULL;"
+```
+
 
 -----------------------------------------------------------------
 
@@ -599,27 +610,26 @@ To run for a specific day, set `RUN_DATE`:
 ```bash
 # Example: 2026-01-01
 
-MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -e RUN_DATE=2026-01-01 -it orchestrator python /app/scripts/generate_daily_files.py
-MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -e RUN_DATE=2026-01-01 -it orchestrator python /app/scripts/run_pipeline_hdfs.py
+docker exec -e RUN_DATE=2026-01-01 -it orchestrator python /app/scripts/generate_daily_files_hdfs.py
+
+docker exec -e RUN_DATE=2026-01-01 -it orchestrator python /app/scripts/run_pipeline_hdfs.py
 ```
 
-Note: 
-If you run again for the same date, the pipeline may fail with: Processed/output déjà existants (write-once).
-
-Use a new RUN_DATE to reprocess without deleting data.
+Note: scripts use **write-once** behavior (they refuse to overwrite existing outputs).
 
 ---
 
 ## 10. Daily Scheduling (22:00)
 
-You want the scheduling to be handled **only by the orchestrator**.
+Create `run_daily_pipeline.bat` in project root:
 
-### 10.1 Run the scheduler inside the orchestrator container
-
-1. Make sure containers are up:
-
-```bash
+```bat
+@echo off
+cd /d "%~dp0"
 docker compose up -d
+
+docker exec -it orchestrator python /app/scripts/generate_daily_files_hdfs.py
+docker exec -it orchestrator python /app/scripts/run_pipeline_hdfs.py
 ```
 
 2. Start the scheduler (it must keep running):
@@ -656,3 +666,4 @@ command: python /app/scripts/orchestrator_scheduler.py
 
 (Then the orchestrator container will always run the scheduler.)
  
+Schedule this `.bat` in Windows **Task Scheduler** for 22:00 daily.

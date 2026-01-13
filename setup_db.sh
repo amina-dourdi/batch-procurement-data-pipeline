@@ -1,40 +1,49 @@
 #!/bin/bash
 
 # --- WINDOWS GIT BASH FIX ---
-# Prevents Git Bash from messing up Linux paths inside Docker
 export MSYS_NO_PATHCONV=1
 
-# --- CONFIGURATION (Updated to match your docker-compose.yml) ---
-CONTAINER_NAME="postgres"       # matches 'container_name: postgres'
-DB_USER="procurement_user"      # matches 'POSTGRES_USER'
-DB_NAME="procurement_db"        # matches 'POSTGRES_DB'
-CSV_DIR="data/postgres_load"
+# --- LOAD CONFIGURATION ---
+if [ -f .env ]; then
+    # Load environment variables automatically
+    set -a
+    source .env
+    set +a
+    echo "✅ Loaded configuration from .env"
+else
+    echo "❌ Error: .env file not found!"
+    exit 1
+fi
+
+# --- SAFETY CHECK ---
+# Check if critical variables are empty
+if [ -z "$DB_USER" ] || [ -z "$CONTAINER_NAME" ]; then
+    echo "❌ Error: Variables DB_USER or CONTAINER_NAME are missing in .env"
+    echo "   Please check your .env file content."
+    exit 1
+fi
 
 echo "=========================================="
-echo "🚀 [Step 1] Generating fresh data with Python..."
+echo " [Step 1] Generating fresh data with Python..."
 echo "=========================================="
-# Runs your python script to update the CSV files
 python scripts/generate_master_data.py
 
 echo ""
 echo "=========================================="
-echo "📦 [Step 2] Copying CSVs to Docker Container..."
+echo " [Step 2] Copying CSVs to Docker Container..."
 echo "=========================================="
 
-# Create a temp folder inside the container
 docker exec $CONTAINER_NAME mkdir -p //tmp/data_load
 
-# Copy files from Host to Container
 docker cp $CSV_DIR/suppliers.csv $CONTAINER_NAME://tmp/data_load/suppliers.csv
 docker cp $CSV_DIR/market.csv $CONTAINER_NAME://tmp/data_load/market.csv
 docker cp $CSV_DIR/products.csv $CONTAINER_NAME://tmp/data_load/products.csv
 
 echo ""
 echo "=========================================="
-echo "🛠️ [Step 3] Recreating Tables & Importing Data..."
+echo " [Step 3] Recreating Tables & Importing Data..."
 echo "=========================================="
 
-# Connect to the database using the correct User and DB Name
 docker exec -i $CONTAINER_NAME psql -U $DB_USER -d $DB_NAME <<EOF
 
 -- A. DROP AND RECREATE TABLES

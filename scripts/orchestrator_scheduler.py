@@ -6,16 +6,16 @@ from datetime import datetime
 SCHEDULE_TIME = "22:00"
 
 def run_job(script_name):
-    print(f"⏰ [22:00] Triggering Job: {script_name}...")
+    print(f" [22:00] Triggering Job: {script_name}...")
     try:
         # We use subprocess to run the other python scripts like a command line
         subprocess.run(["python", f"scripts/{script_name}"], check=True)
         print(f"✅ Job {script_name} Completed Successfully.")
     except subprocess.CalledProcessError as e:
-        print(f"❌ Job {script_name} Failed: {e}")
+        print(f" Job {script_name} Failed: {e}")
 
 def main():
-    print(f"🚀 Orchestrator started. Waiting for {SCHEDULE_TIME} daily...")
+    print(f" Orchestrator started. Waiting for {SCHEDULE_TIME} daily...")
     
     while True:
         # Get current time (HH:MM)
