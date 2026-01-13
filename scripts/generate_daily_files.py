@@ -18,7 +18,7 @@ LOCATIONS = os.getenv("LOCATIONS", "WH1,WH2,WH3").split(",")
 
 # PROBABILITIES (The Chaos Factors)
 PROB_MISSING_FILE = 0.10  # 10% chance a market forgets to send file
-PROB_BAD_FORMAT = 0.05    # 5% chance the file is corrupted text (not JSON)
+PROB_BAD_FORMAT = 0.05    # 5% chance the file is corrupted text (or JSON)
 PROB_GHOST_SKU = 0.05     # 5% chance they sell an unknown product
 
 
