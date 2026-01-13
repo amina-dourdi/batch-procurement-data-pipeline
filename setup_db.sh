@@ -78,6 +78,7 @@ CREATE TABLE products (
 );
 
 -- B. COPY DATA FROM CSV
+-- We use the COPY command to load the files we just moved to /tmp/data_load
 COPY suppliers(supplier_id, name, country, contact_email, location) 
 FROM '/tmp/data_load/suppliers.csv' DELIMITER ',' CSV HEADER;
 

@@ -84,7 +84,6 @@ def main():
         available = random.randint(0, 200)
         reserved = random.randint(0, min(50, available))
         safety = random.randint(5, 40)
-
         stock_rows.append({
             "run_date": RUN_DATE,
             "sku": sku,

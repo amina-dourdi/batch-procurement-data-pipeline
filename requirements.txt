@@ -10,6 +10,8 @@ psycopg2-binary==2.9.9
 sqlalchemy==2.0.25
 # presto-python-client==0.8.4
 trino
+presto-python-client==0.8.4
+
 # HDFS
 hdfs==2.7.0
 pyarrow==15.0.0

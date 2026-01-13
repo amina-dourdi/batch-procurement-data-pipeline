@@ -3,19 +3,19 @@ import subprocess
 from datetime import datetime
 
 # Define the schedule
-SCHEDULE_TIME = "14:00"
+SCHEDULE_TIME = "22:00"
 
 def run_job(script_name):
-    print(f"⏰ [22:00] Triggering Job: {script_name}...")
+    print(f" [22:00] Triggering Job: {script_name}...")
     try:
         # We use subprocess to run the other python scripts like a command line
         subprocess.run(["python", f"scripts/{script_name}"], check=True)
         print(f"✅ Job {script_name} Completed Successfully.")
     except subprocess.CalledProcessError as e:
-        print(f"❌ Job {script_name} Failed: {e}")
+        print(f" Job {script_name} Failed: {e}")
 
 def main():
-    print(f"🚀 Orchestrator started. Waiting for {SCHEDULE_TIME} daily...")
+    print(f" Orchestrator started. Waiting for {SCHEDULE_TIME} daily...")
     
     while True:
         # Get current time (HH:MM)
@@ -25,7 +25,7 @@ def main():
             print(f"\n--- STARTING DAILY BATCH: {datetime.now()} ---")
             
             # Step 1: Generation (The script we created)
-            run_job("generate_master_data.py")
+            run_job("generate_transaction_data.py")
             
             # Step 2: Processing (The SQL script - we will build this next!)
             # run_job("run_pipeline.py") 
