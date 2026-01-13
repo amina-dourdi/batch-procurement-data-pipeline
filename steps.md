@@ -504,6 +504,11 @@ Run:
 ```bash
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it orchestrator python /app/scripts/generate_daily_files.py
 ```
+result:
+/app/scripts/pg_client.py:20: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return pd.read_sql_query(query, conn)
+[OK] HDFS RAW orders -> /raw/orders/2026-01-06/orders.parquet (365 lignes)
+[OK] HDFS RAW stock  -> /raw/stock/2026-01-06/stock.parquet (300 lignes)
 
 ### 6.1 Verify RAW Parquet exists in HDFS
 
@@ -515,6 +520,12 @@ MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it orchestrator python /
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /raw/orders
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /raw/stock
 ```
+result:
+
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-01-06 14:10 /raw/orders/2026-01-06
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-01-06 14:10 /raw/stock/2026-01-06
 
 2) use the real date you see (example: 2026-01-06)
 
@@ -522,6 +533,13 @@ MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /raw/orders/2026-01-06
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /raw/stock/2026-01-06
 ```
+result:
+
+Found 1 items
+-rw-r--r--   2 root supergroup       5678 2026-01-06 14:10 /raw/orders/2026-01-06/orders.parquet
+Found 1 items
+-rw-r--r--   2 root supergroup       7994 2026-01-06 14:10 /raw/stock/2026-01-06/stock.parquet
+
 ---
 
 ## 7. Run Pipeline Transformations (HDFS RAW → processed/output → HDFS)
@@ -543,6 +561,15 @@ Run:
 ```bash
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it orchestrator python /app/scripts/run_pipeline_hdfs.py
 ```
+result:
+
+/app/scripts/pg_client.py:20: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return pd.read_sql_query(query, conn)
+[OK] HDFS aggregated_orders -> /processed/aggregated_orders/2026-01-06/aggregated_orders.parquet
+[OK] HDFS net_demand       -> /processed/net_demand/2026-01-06/net_demand.parquet
+[OK] HDFS supplier_orders  -> /output/supplier_orders/2026-01-06/supplier_orders.parquet
+
+
 
 ### 7.1 Verify outputs exist in HDFS
 
@@ -555,6 +582,14 @@ MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /processed/net_demand
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /output/supplier_orders
 ```
+result:
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-01-06 14:12 /processed/aggregated_orders/2026-01-06
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-01-06 14:12 /processed/net_demand/2026-01-06
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-01-06 14:12 /output/supplier_orders/2026-01-06
+
 
 2) use the real date you see (example: 2026-01-06)
 
@@ -563,6 +598,13 @@ MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /processed/net_demand/2026-01-06
 MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it namenode hdfs dfs -ls /output/supplier_orders/2026-01-06
 ```
+result:
+Found 1 items
+-rw-r--r--   2 root supergroup       3993 2026-01-06 14:12 /processed/aggregated_orders/2026-01-06/aggregated_orders.parquet
+Found 1 items
+-rw-r--r--   2 root supergroup       3968 2026-01-06 14:12 /processed/net_demand/2026-01-06/net_demand.parquet
+Found 1 items
+-rw-r--r--   2 root supergroup       3695 2026-01-06 14:12 /output/supplier_orders/2026-01-06/supplier_orders.parquet
 
 ---
 
