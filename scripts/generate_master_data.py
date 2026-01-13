@@ -17,7 +17,7 @@ OUTPUT_DIR = "data/postgres_load"
 # Ensure output directory exists
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-print(f"🚀 Starting Data Generation in '{OUTPUT_DIR}'...")
+print(f" Starting Data Generation in '{OUTPUT_DIR}'...")
 
 # ==========================================
 # 1. GENERATE SUPPLIERS
@@ -94,4 +94,4 @@ df_products = pd.DataFrame(products)
 df_products.to_csv(f"{OUTPUT_DIR}/products.csv", index=False)
 print(f"✔ Created {len(df_products)} products.")
 
-print("\n✨ Generation Complete. CSV files are ready to be loaded into PostgreSQL.")
+print("\n Generation Complete. CSV files are ready to be loaded into PostgreSQL.")
