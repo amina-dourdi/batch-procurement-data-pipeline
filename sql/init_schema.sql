@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 -- sql/init_schema.sql
 
 DROP TABLE IF EXISTS products;
@@ -32,9 +31,8 @@ CREATE TABLE products (
     mxoq INT,                  -- Max Order Quantity
     package VARCHAR(50),       -- Packaging type (e.g., 'Box of 12')
     leadtime INT               -- Days to deliver
-=======
 -- sql/init_schema.sql
-
+)
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS market;
 DROP TABLE IF EXISTS suppliers;
@@ -66,5 +64,4 @@ CREATE TABLE products (
     mxoq INT,                  -- Max Order Quantity
     package VARCHAR(50),       -- Packaging type (e.g., 'Box of 12')
     leadtime INT               -- Days to deliver
->>>>>>> 5aea495ca5d75eb4915526b5ef7dcc941c064ace
 );

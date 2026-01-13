@@ -8,6 +8,8 @@ numpy==1.26.0
 # Bases de données
 psycopg2-binary==2.9.9
 sqlalchemy==2.0.25
+# presto-python-client==0.8.4
+trino
 presto-python-client==0.8.4
 
 # HDFS
