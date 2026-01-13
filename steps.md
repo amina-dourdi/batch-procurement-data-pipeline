@@ -674,4 +674,38 @@ docker exec -it orchestrator python /app/scripts/generate_daily_files_hdfs.py
 docker exec -it orchestrator python /app/scripts/run_pipeline_hdfs.py
 ```
 
+2. Start the scheduler (it must keep running):
+
+**Git Bash:**
+
+```bash
+MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -it orchestrator python /app/scripts/orchestrator_scheduler.py
+```
+
+**PowerShell/CMD:**
+
+```powershell
+docker exec -it orchestrator python /app/scripts/orchestrator_scheduler.py
+```
+
+### 10.2 Important notes
+
+* The scheduler is an infinite loop (`while True`). If you stop it, the 22:00 job will not run.
+* For demo/testing, you can override the schedule time:
+
+```bash
+# Example: run at 15:30 today
+MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL="*" docker exec -e SCHEDULE_TIME=15:30 -it orchestrator python /app/scripts/orchestrator_scheduler.py
+```
+
+### 10.3 Optional: run scheduler as the container command
+
+If you want the scheduler to start automatically with `docker compose up -d`, set the orchestrator service command to:
+
+```yaml
+command: python /app/scripts/orchestrator_scheduler.py
+```
+
+(Then the orchestrator container will always run the scheduler.)
+ 
 Schedule this `.bat` in Windows **Task Scheduler** for 22:00 daily.
