@@ -218,7 +218,6 @@ Dockerfile
 /hadoop
 /logs
 /output
-/scripts
 /sql
 steps.md
 test-containers
