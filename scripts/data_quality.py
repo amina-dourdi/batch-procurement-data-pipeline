@@ -3,22 +3,7 @@ import csv
 from datetime import datetime
 import os
 import psycopg2
-import logging
-
-# --------------------------------------------------
-# LOGGING CONFIGURATION
-# --------------------------------------------------
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-    handlers=[
-        logging.FileHandler("data_quality.log"),
-        logging.StreamHandler()
-    ]
-)
-
-logger = logging.getLogger("DataQualityGuard")
-
+import logger 
 
 class DataQualityGuard:
     def __init__(self, batch_date, db_config):
