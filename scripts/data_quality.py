@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 import psycopg2
 import logger 
+import re
 
 class DataQualityGuard:
     def __init__(self, batch_date, db_config):
@@ -14,6 +15,23 @@ class DataQualityGuard:
     # --------------------------------------------------
     # MASTER DATA LOADING
     # --------------------------------------------------
+    def _parse_pack_size(self, pkg_str):
+        """Helper to convert 'Box of 6' -> 6, 'Pallet' -> 100"""
+        if not pkg_str:
+            return 1
+        
+        s = str(pkg_str).lower()
+        
+        # Extract number if present (e.g., "box of 6")
+        numbers = re.findall(r'\d+', s)
+        if numbers:
+            return int(numbers[0])
+            
+        if "pallet" in s:
+            return 100 # Standard pallet assumption
+            
+        return 1 # Default for "Single Unit" or unknown
+    
     def load_product_limits(self, db_config):
         """Fetch MxOQ from Postgres."""
         logger.info("Connecting to Postgres to fetch Product Rules...")
@@ -22,15 +40,25 @@ class DataQualityGuard:
             conn = psycopg2.connect(**db_config)
             cur = conn.cursor()
 
-            cur.execute("SELECT sku, mxoq FROM products;")
+            cur.execute("SELECT sku, mxoq, package FROM products;")
             results = cur.fetchall()
 
             cur.close()
             conn.close()
 
-            limits = {row[0]: row[1] for row in results}
-            logger.info("Loaded %d product rules.", len(limits))
-            return limits
+            rules = {}
+            for row in results:
+                sku = row[0]
+                mxoq = row[1]
+                package_str = row[2]
+                
+                rules[sku] = {
+                    'max': mxoq if mxoq else 999999,
+                    'pack_size': self._parse_pack_size(package_str) # نحول النص لرقم هنا
+                }
+
+            logger.info("Loaded rules for %d products.", len(rules))
+            return rules
 
         except Exception:
             logger.error("Database error while loading product limits", exc_info=True)
@@ -52,13 +80,40 @@ class DataQualityGuard:
     # --------------------------------------------------
     # DATA QUALITY CHECKS
     # --------------------------------------------------
+    def check_package_compliance(self, order_id, sku, quantity):
+        rules = self.product_limits.get(sku)
+
+        if rules is None:
+            # This error was recorded in the other function, so we can ignore it here or return it.
+            return False
+
+        pack_size = rules['pack_size']
+
+        # Logic: Is the quantity divisible by the size of the box?
+        if quantity % pack_size != 0:
+            self.log_issue(
+                "INVALID_PACK_SIZE",
+                order_id,
+                f"Qty {quantity} is not a multiple of Pack Size {pack_size} (Source: {sku})",
+                severity="MEDIUM"
+            )
+            logger.warning(
+                "Invalid Package Size | Order %s | SKU %s | Qty %s is not multiple of %s", 
+                order_id, sku, quantity, pack_size
+            )
+            return False
+            
+        return True
     def check_order_magnitude(self, order_id, sku, quantity):
+        rules = self.product_limits.get(sku)
         max_allowed = self.product_limits.get(sku)
 
         if max_allowed is None:
             self.log_issue("UNKNOWN_PRODUCT", sku, "SKU not found in Master Data.")
             logger.warning("Unknown SKU detected: %s", sku)
             return False
+
+        max_allowed = rules['max']
 
         if quantity > max_allowed:
             self.log_issue(
