@@ -215,7 +215,6 @@ docker-compose.yml
 
 Dockerfile
 
-/data
 /hadoop
 /logs
 /output
@@ -223,3 +222,5 @@ Dockerfile
 /sql
 steps.md
 test-containers
+/data
+examen_qst.md
