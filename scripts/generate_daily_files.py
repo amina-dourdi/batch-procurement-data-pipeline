@@ -4,6 +4,8 @@ import pandas as pd
 from datetime import date
 from hdfs_client import WebHDFSClient
 from pg_client import read_sql_df
+import json
+import pandavro as pdx  # pip install pandavro
 
 DATA_ROOT = os.getenv("DATA_ROOT", "/app/data")
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
@@ -13,6 +15,12 @@ HDFS_USER = os.getenv("HDFS_USER", "root")
 
 MAX_SKUS_PER_MARKET = int(os.getenv("MAX_SKUS_PER_MARKET", "40"))
 LOCATIONS = os.getenv("LOCATIONS", "WH1,WH2,WH3").split(",")
+
+# PROBABILITIES (The Chaos Factors)
+PROB_MISSING_FILE = 0.10  # 10% chance a market forgets to send file
+PROB_BAD_FORMAT = 0.05    # 5% chance the file is corrupted text (not JSON)
+PROB_GHOST_SKU = 0.05     # 5% chance they sell an unknown product
+
 
 def main():
     hdfs = WebHDFSClient(HDFS_BASE_URL, user=HDFS_USER)
@@ -27,12 +35,14 @@ def main():
     #     raise ValueError("products.supplier_id contient des ids inexistants dans suppliers.")
 
     market_ids = df_markets["market_id"].dropna().unique().tolist()
-    skus = df_products["sku"].dropna().unique().tolist()
+    valid_skus = df_products["sku"].dropna().unique().tolist()
 
     # =========================================================
     # =============== RAW ORDERS (PER MARKET) =================
     # =========================================================
-    random.seed("orders-" + RUN_DATE)
+
+    # We use the date as seed so every run for the SAME DATE produces SAME errors
+    random.seed(f"chaos-{RUN_DATE}")
 
     hdfs_orders_dir = f"/raw/orders/{RUN_DATE}"
     hdfs.mkdirs(hdfs_orders_dir)
@@ -40,39 +50,76 @@ def main():
     local_dir = os.path.join(DATA_ROOT, "raw", RUN_DATE)
     os.makedirs(local_dir, exist_ok=True)
 
+    print(f" Processing {len(market_ids)} markets...")
+
     for market_id in market_ids:
+
+        # --- CHAOS 1: MISSING FILE ---
+        # Roll the dice: Does this market send the file today?
+        if random.random() < PROB_MISSING_FILE:
+            print(f" [Simulated Error] Market {market_id} did NOT send a file.")
+            continue  # Skip to next market
 
         orders_rows = []
 
-        sold_skus = random.sample(skus, k=min(MAX_SKUS_PER_MARKET, len(skus)))
+        sold_skus = random.sample(valid_skus, k=min(MAX_SKUS_PER_MARKET, len(valid_skus)))
+
 
         for sku in sold_skus:
-            qty = random.randint(0, 12)
-            if qty > 0:
-                orders_rows.append({
-                    "run_date": RUN_DATE,
-                    "market_id": market_id,
-                    "sku": sku,
-                    "quantity_sold": qty
-                })
+            qty = random.randint(1, 12)
+            orders_rows.append({
+                "market_id": market_id,
+                "sku": sku,
+                "quantity": qty,
+                "timestamp": f"{RUN_DATE}T10:00:00"
+            })
 
-        df_orders_market = pd.DataFrame(orders_rows)
+        # --- CHAOS 2: GHOST SKU (Unknown Product) ---
+        if random.random() < PROB_GHOST_SKU:
+            print(f"[Simulated Error] Market {market_id} sold a Ghost SKU.")
+            orders_rows.append({
+                "market_id": market_id,
+                "sku": "SKU-99999-GHOST",  # Not in Postgres
+                "quantity": 50,
+                "timestamp": f"{RUN_DATE}T12:00:00"
+            })
 
-        # ---- LOCAL ----
-        local_orders = os.path.join(
-            local_dir, f"orders_market_{market_id}.parquet"
-        )
-        df_orders_market.to_parquet(local_orders, index=False)
+        # Define Paths
+        filename = f"orders_{market_id}.avro"
+        local_path = os.path.join(local_dir, filename)
+        hdfs_path = f"{hdfs_orders_dir}/{filename}"
 
-        # ---- HDFS ----
-        hdfs_orders_path = f"{hdfs_orders_dir}/orders_market_{market_id}.parquet"
+        # --- CHAOS 3: BAD FORMAT (Corrupted File) ---
+        is_corrupted = random.random() < PROB_BAD_FORMAT
 
-        if hdfs.exists(hdfs_orders_path):
-            raise RuntimeError(f"File already exists: {hdfs_orders_path}")
+        if is_corrupted:
+            # Randomly decide which "bad" format to send
+            bad_format_type = random.choice(['json', 'txt'])
 
-        hdfs.put_file(local_orders, hdfs_orders_path, overwrite=False)
+            print(f" [Simulated Error] Market {market_id} sent CORRUPTED format ({bad_format_type} inside Avro).")
+            
+            with open(local_path, 'w') as f:
+                if bad_format_type == 'json':
+                    json.dump(orders_rows, f, indent=2)
+                else:
+                    for row in orders_rows:
+                        f.write(str(row) + "\n")
+        else:
+            # --- NORMAL CASE: VALID AVRO ---
+            # We create the DataFrame
+            df_market = pd.DataFrame(orders_rows)
+            
+            # Save as Avro using pandavro
+            pdx.to_avro(local_path, df_market)
+            
+        # --- UPLOAD TO HDFS ---
+        if hdfs.exists(hdfs_path):
+            print(f" Skipping existing: {filename}")
+        else:
+            hdfs.put_file(local_path, hdfs_path, overwrite=False)
+            status = "CORRUPTED" if is_corrupted else "OK"
+            print(f" Uploaded {filename} [{status}]")
 
-        print(f"[OK] HDFS orders -> {hdfs_orders_path}")
 
     # =========================================================
     # ===================== RAW STOCK =========================
@@ -80,7 +127,7 @@ def main():
     random.seed("stock-" + RUN_DATE)
 
     stock_rows = []
-    for sku in skus:
+    for sku in valid_skus:
         available = random.randint(0, 200)
         reserved = random.randint(0, min(50, available))
         safety = random.randint(5, 40)
@@ -96,21 +143,20 @@ def main():
     df_stock = pd.DataFrame(stock_rows)
 
     # ---- LOCAL ----
-    local_stock = os.path.join(local_dir, "stock.parquet")
-    df_stock.to_parquet(local_stock, index=False)
+    local_stock = os.path.join(local_dir, "stock.avro")
+    pdx.to_avro(local_stock, df_stock)
 
     # ---- HDFS ----
     hdfs_stock_dir = f"/raw/stock/{RUN_DATE}"
     hdfs.mkdirs(hdfs_stock_dir)
 
-    hdfs_stock_path = f"{hdfs_stock_dir}/stock.parquet"
+    hdfs_stock_path = f"{hdfs_stock_dir}/stock.avro"
 
     if hdfs.exists(hdfs_stock_path):
-        raise RuntimeError("Stock file already exists for this date.")
-
-    hdfs.put_file(local_stock, hdfs_stock_path, overwrite=False)
-
-    print(f"[OK] HDFS stock -> {hdfs_stock_path}")
+        print(f" Stock file already exists: {hdfs_stock_path}")
+    else:
+            hdfs.put_file(local_stock, hdfs_stock_path, overwrite=False)
+            print(f"[OK] HDFS stock -> {hdfs_stock_path}")
 
 if __name__ == "__main__":
     main()
