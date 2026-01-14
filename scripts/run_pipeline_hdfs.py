@@ -89,6 +89,7 @@ def main():
         cur.execute("CREATE SCHEMA IF NOT EXISTS default")
         cur.execute("CREATE SCHEMA IF NOT EXISTS processed")
         cur.execute("CREATE SCHEMA IF NOT EXISTS hive.output")
+        
         # --- ÉTAPE 0 : PRÉPARATION, GÉNÉRATION ET VALIDATION ---
         print("\n[Étape 0] Préparation HDFS et Simulation Chaos...")
         setup_hdfs_structure(hdfs)

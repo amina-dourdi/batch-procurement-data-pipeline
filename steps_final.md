@@ -101,7 +101,8 @@ $ docker exec -it namenode bash
 root@namenode:/# hdfs dfsadmin -safemode leave
 Safe mode is OFF
 root@namenode:/# hdfs dfs -chmod -R 777 /raw
-
+root@namenode:/# hdfs dfs -chmod -R 777 /processed
+root@namenode:/# hdfs dfs -chmod -R 777 /output
 
 python scripts/generate_daily_files.py
 
