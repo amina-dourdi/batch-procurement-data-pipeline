@@ -6,6 +6,8 @@ from hdfs_client import WebHDFSClient
 from pg_client import read_sql_df
 import json
 import pandavro as pdx  # pip install pandavro
+from trino.dbapi import connect
+# from trino_utils import ensure_schema
 
 DATA_ROOT = os.getenv("DATA_ROOT", "/app/data")
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
@@ -24,6 +26,10 @@ PROB_GHOST_SKU = 0.05     # 5% chance they sell an unknown product
 
 def main():
     hdfs = WebHDFSClient(HDFS_BASE_URL, user=HDFS_USER)
+
+    # Create schemas for orders and stock
+    # ensure_schema("raw_orders")
+    # ensure_schema("raw_stock")
 
     # --- master data depuis Postgres ---
     df_markets = read_sql_df("SELECT market_id FROM market;")

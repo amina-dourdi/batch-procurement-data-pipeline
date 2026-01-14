@@ -4,7 +4,7 @@ from datetime import datetime
 
 # --- CONFIGURATION ---
 # List of times to run the job (24-hour format)
-SCHEDULE_TIMES = ["21:00", "22:00"]
+SCHEDULE_TIMES = ["22:00", "23:00"]
 
 def run_job(script_name):
     print(f" [Job Trigger] Starting: {script_name}...")

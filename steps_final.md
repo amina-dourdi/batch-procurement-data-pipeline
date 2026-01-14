@@ -48,7 +48,7 @@ docker exec -it orchestrator bash
 Run this once inside the container to install the tools needed for Avro, Trino, and HDFS:
 
 ```bash
-pip install trino pandavro fastavro requests
+pip install  pandavro fastavro 
 
 ```
 

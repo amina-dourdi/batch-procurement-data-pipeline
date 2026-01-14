@@ -5,7 +5,7 @@ from trino.dbapi import connect
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
 
 def main():
-    conn = connect(host="localhost", port=8080, user="admin", catalog='hive', schema='default')
+    conn = connect(host="trino", port=8080, user="admin", catalog='hive', schema='default')
     cur = conn.cursor()
 
     # Source : Net Demand (Parquet colonnaire sur HDFS)

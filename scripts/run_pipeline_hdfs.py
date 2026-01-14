@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 from datetime import datetime, date
+
+from psycopg2 import connect
 from hdfs_client import WebHDFSClient
 
 # --- IMPORT DES ÉTAPES ---
@@ -9,6 +11,7 @@ import aggregate_orders
 import net_demand
 import supplier_orders
 from data_quality import DataQualityGuard  # Import de votre garde-fou
+# from trino_utils import ensure_schema
 
 # --- 1. CONFIGURATION ---
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
@@ -18,7 +21,7 @@ HDFS_USER = os.getenv("HDFS_USER", "root")
 
 # Configuration pour la connexion Postgres (utilisée par DataQualityGuard)
 DB_CONFIG = {
-    "host": "localhost",
+    "host": "postgres",
     "port": "5432", 
     "database": "procurement_db",
     "user": "procurement_user",
@@ -64,12 +67,23 @@ def validate_files_and_log_errors(guard):
 def main():
     hdfs = WebHDFSClient(HDFS_BASE_URL, user=HDFS_USER)
     
+    # ensure_schema("processed")
+
     # 1. Initialisation du Garde (Charge les MxOQ depuis Postgres)
     guard = DataQualityGuard(RUN_DATE, DB_CONFIG)
     
     try:
         print(f"\n --- DÉMARRAGE DU PIPELINE GLOBAL ({RUN_DATE}) ---")
         
+        # 1. Connect to Trino (Service Name: trino)
+        conn = connect(host="trino", port=8080, user="admin", catalog='hive', schema='default')
+        cur = conn.cursor()
+
+        # --- 🛠️ FIX: CREATE SCHEMAS FIRST ---
+        # We must ensure the 'folders' exist in the database before creating tables in them.
+        print("Checking schemas...")
+        cur.execute("CREATE SCHEMA IF NOT EXISTS hive.default")
+        cur.execute("CREATE SCHEMA IF NOT EXISTS hive.processed")
         # --- ÉTAPE 0 : PRÉPARATION, GÉNÉRATION ET VALIDATION ---
         print("\n[Étape 0] Préparation HDFS et Simulation Chaos...")
         setup_hdfs_structure(hdfs)

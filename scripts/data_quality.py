@@ -3,12 +3,8 @@ import csv
 from datetime import datetime
 import os
 import psycopg2
-<<<<<<< HEAD
 from logger import log as logger
-=======
-import logger 
 import re
->>>>>>> 142624274bf3c09391d7f0b3179850f12898f1e9
 
 class DataQualityGuard:
     def __init__(self, batch_date, db_config):
