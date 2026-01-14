@@ -48,7 +48,9 @@ docker exec -it orchestrator bash
 Run this once inside the container to install the tools needed for Avro, Trino, and HDFS:
 
 ```bash
-pip install  pandavro fastavro 
+pip install "numpy<2"
+
+pip install  pandavro fastavro trino
 
 ```
 
@@ -94,6 +96,13 @@ This script creates the daily folder in HDFS (`/raw/orders/...`).
 * It intentionally creates **corrupted files** (JSON/Text masked as Avro) to simulate real-world data issues.
 
 ```bash
+
+$ docker exec -it namenode bash
+root@namenode:/# hdfs dfsadmin -safemode leave
+Safe mode is OFF
+root@namenode:/# hdfs dfs -chmod -R 777 /raw
+
+
 python scripts/generate_daily_files.py
 
 ```

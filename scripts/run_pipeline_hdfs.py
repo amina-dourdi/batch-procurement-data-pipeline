@@ -1,10 +1,10 @@
 import os
 import pandas as pd
 from datetime import datetime, date
-
-from psycopg2 import connect
+import fastavro
+from trino.dbapi import connect 
 from hdfs_client import WebHDFSClient
-
+import requests
 # --- IMPORT DES ÉTAPES ---
 import generate_daily_files
 import aggregate_orders
@@ -18,6 +18,13 @@ RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
 DATA_ROOT = os.getenv("DATA_ROOT", "/app/data")
 HDFS_BASE_URL = os.getenv("HDFS_BASE_URL", "http://namenode:9870")
 HDFS_USER = os.getenv("HDFS_USER", "root")
+
+TRINO_HOST = os.environ["TRINO_HOST"]
+TRINO_PORT = int(os.getenv("TRINO_PORT", 8080))
+TRINO_USER = os.getenv("TRINO_USER", "admin")
+TRINO_CATALOG = os.getenv("TRINO_CATALOG", "hive")
+TRINO_SCHEMA = os.getenv("TRINO_SCHEMA", "default")
+
 
 # Configuration pour la connexion Postgres (utilisée par DataQualityGuard)
 DB_CONFIG = {
@@ -42,27 +49,16 @@ def setup_hdfs_structure(hdfs):
         print(f" Configuration HDFS : {folder}")
         hdfs.mkdirs(folder)
 
-def validate_files_and_log_errors(guard):
-    """Vérifie la validité des fichiers locaux et utilise le guard pour loguer."""
-    # Note : On regarde dans raw/orders car c'est là que generate_daily_files écrit
+
+def check_files_existence():
+    """A simple check to ensure the files were generated locally."""
     local_dir = os.path.join(DATA_ROOT, "raw/orders", RUN_DATE)
-    
     if not os.path.exists(local_dir):
-        print(f" Aucun dossier local trouvé pour la date : {local_dir}")
+        print(f" Warning: Local directory not found: {local_dir}")
         return
-
-    ALLOWED_EXTENSIONS = {'.avro', '.csv', '.json', '.parquet'}
-
-    for file_name in os.listdir(local_dir):
-        ext = os.path.splitext(file_name)[1].lower()
-        if ext not in ALLOWED_EXTENSIONS:
-            # On utilise la méthode log_issue du guard au lieu d'une liste manuelle
-            guard.log_issue(
-                rule_name="INVALID_FORMAT",
-                entity_id=file_name,
-                details=f"Format {ext} non supporté",
-                severity="MEDIUM"
-            )
+    
+    files = [f for f in os.listdir(local_dir) if f.endswith('.avro')]
+    print(f"  Found {len(files)} Avro files ready for processing.")
 
 def main():
     hdfs = WebHDFSClient(HDFS_BASE_URL, user=HDFS_USER)
@@ -76,14 +72,23 @@ def main():
         print(f"\n --- DÉMARRAGE DU PIPELINE GLOBAL ({RUN_DATE}) ---")
         
         # 1. Connect to Trino (Service Name: trino)
-        conn = connect(host="trino", port=8080, user="admin", catalog='hive', schema='default')
+        
+        conn = connect(
+            host=TRINO_HOST,
+            port=TRINO_PORT,
+            user=TRINO_USER,
+            catalog=TRINO_CATALOG,
+            schema=TRINO_SCHEMA
+        )    
         cur = conn.cursor()
+
 
         # --- 🛠️ FIX: CREATE SCHEMAS FIRST ---
         # We must ensure the 'folders' exist in the database before creating tables in them.
         print("Checking schemas...")
-        cur.execute("CREATE SCHEMA IF NOT EXISTS hive.default")
-        cur.execute("CREATE SCHEMA IF NOT EXISTS hive.processed")
+        cur.execute("CREATE SCHEMA IF NOT EXISTS default")
+        cur.execute("CREATE SCHEMA IF NOT EXISTS processed")
+        cur.execute("CREATE SCHEMA IF NOT EXISTS hive.output")
         # --- ÉTAPE 0 : PRÉPARATION, GÉNÉRATION ET VALIDATION ---
         print("\n[Étape 0] Préparation HDFS et Simulation Chaos...")
         setup_hdfs_structure(hdfs)
@@ -91,8 +96,7 @@ def main():
         # Génération des fichiers (avec erreurs simulées)
         generate_daily_files.main()
         
-        # Validation des formats (remplit le guard.errors)
-        validate_files_and_log_errors(guard)
+        check_files_existence()
 
         # --- ÉTAPE 1 : AGGRÉGATION (Trino) ---
         print("\n[Étape 1] Lancement de l'agrégation des ventes...")
@@ -106,7 +110,7 @@ def main():
 
         # --- ÉTAPE 3 : COMMANDES FOURNISSEURS (Trino) ---
         print("\n[Étape 3] Génération des ordres d'achat...")
-        supplier_orders.main()
+        supplier_orders.main(guard)
 
         # --- ÉTAPE FINALE : SAUVEGARDE ET EXPORT DU RAPPORT ---
         print("\n[Étape 4] Sauvegarde du rapport d'exceptions...")

@@ -7,7 +7,7 @@ from pg_client import read_sql_df
 import json
 import pandavro as pdx  # pip install pandavro
 from trino.dbapi import connect
-# from trino_utils import ensure_schema
+from trino_utils import ensure_schema
 
 DATA_ROOT = os.getenv("DATA_ROOT", "/app/data")
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
@@ -20,7 +20,6 @@ LOCATIONS = os.getenv("LOCATIONS", "WH1,WH2,WH3").split(",")
 
 # PROBABILITIES (The Chaos Factors)
 PROB_MISSING_FILE = 0.10  # 10% chance a market forgets to send file
-PROB_BAD_FORMAT = 0.05    # 5% chance the file is corrupted text (or JSON)
 PROB_GHOST_SKU = 0.05     # 5% chance they sell an unknown product
 
 
@@ -28,18 +27,13 @@ def main():
     hdfs = WebHDFSClient(HDFS_BASE_URL, user=HDFS_USER)
 
     # Create schemas for orders and stock
-    # ensure_schema("raw_orders")
-    # ensure_schema("raw_stock")
+    ensure_schema("raw_orders")
+    ensure_schema("raw_stock")
 
     # --- master data depuis Postgres ---
     df_markets = read_sql_df("SELECT market_id FROM market;")
     df_products = read_sql_df("SELECT sku, supplier_id, moq, package FROM products;")
-    #df_suppliers = read_sql_df("SELECT supplier_id FROM suppliers;")
-
-    #bad = df_products[~df_products["supplier_id"].isin(df_suppliers["supplier_id"])]
-    # if not bad.empty:
-    #     raise ValueError("products.supplier_id contient des ids inexistants dans suppliers.")
-
+    
     market_ids = df_markets["market_id"].dropna().unique().tolist()
     valid_skus = df_products["sku"].dropna().unique().tolist()
 
@@ -97,36 +91,20 @@ def main():
         local_path = os.path.join(local_dir_orders, filename)
         hdfs_path = f"{hdfs_orders_dir}/{filename}"
 
-        # --- CHAOS 3: BAD FORMAT (Corrupted File) ---
-        is_corrupted = random.random() < PROB_BAD_FORMAT
-
-        if is_corrupted:
-            # Randomly decide which "bad" format to send
-            bad_format_type = random.choice(['json', 'txt'])
-
-            print(f" [Simulated Error] Market {market_id} sent CORRUPTED format ({bad_format_type} inside Avro).")
-            
-            with open(local_path, 'w') as f:
-                if bad_format_type == 'json':
-                    json.dump(orders_rows, f, indent=2)
-                else:
-                    for row in orders_rows:
-                        f.write(str(row) + "\n")
-        else:
-            # --- NORMAL CASE: VALID AVRO ---
-            # We create the DataFrame
+        # ---  GENERATE VALID AVRO ---
+        if orders_rows:
             df_market = pd.DataFrame(orders_rows)
-            
-            # Save as Avro using pandavro
             pdx.to_avro(local_path, df_market)
-            
-        # --- UPLOAD TO HDFS ---
-        if hdfs.exists(hdfs_path):
-            print(f" Skipping existing: {filename}")
+                
+            # --- UPLOAD TO HDFS ---
+            if hdfs.exists(hdfs_path):
+                print(f" Skipping existing: {filename}")
+            else:
+                hdfs.put_file(local_path, hdfs_path, overwrite=False)
+                print(f" Uploaded {filename} [OK]")
         else:
-            hdfs.put_file(local_path, hdfs_path, overwrite=False)
-            status = "CORRUPTED" if is_corrupted else "OK"
-            print(f" Uploaded {filename} [{status}]")
+            print(f" Market {market_id} had 0 orders.")
+            
 
 
     # =========================================================

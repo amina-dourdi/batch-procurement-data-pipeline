@@ -4,8 +4,7 @@ networks:
 
 volumes:
   namenode-data:
-  datanode1-data:
-  datanode2-data:
+  datanode-data:
   postgres-data:
 
 services:
@@ -37,12 +36,12 @@ services:
       retries: 5
 
   # HDFS DATANODE 1
-  datanode1:
+  datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode1
-    hostname: datanode1
+    container_name: datanode
+    hostname: datanode
     volumes:
-      - datanode1-data:/hadoop/dfs/data
+      - datanode-data:/hadoop/dfs/data
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
       - CORE_CONF_hadoop_http_staticuser_user=root
@@ -53,22 +52,6 @@ services:
     networks:
       - procurement-net
 
-  # HDFS DATANODE 2
-  datanode2:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode2
-    hostname: datanode2
-    volumes:
-      - datanode2-data:/hadoop/dfs/data
-    environment:
-      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
-      - CORE_CONF_hadoop_http_staticuser_user=root
-      - HDFS_CONF_dfs_replication=2
-    depends_on:
-      namenode:
-        condition: service_healthy
-    networks:
-      - procurement-net
 
   # POSTGRESQL
   postgres:
@@ -94,6 +77,8 @@ services:
       retries: 5
 
   # TRINO (version simple SANS Hive Metastore)
+  #       - ./trino-data:/tmp/hive-metastore
+
   trino:
     image: trinodb/trino:400
     container_name: trino
@@ -101,9 +86,9 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./config/presto/config.properties:/etc/trino/config.properties
-      - ./config/presto/catalog:/etc/trino/catalog
-      - ./config/presto/core-site.xml:/etc/trino/core-site.xml
+      - ./config/trino/config.properties:/etc/trino/config.properties
+      - ./config/trino/catalog:/etc/trino/catalog
+      - ./config/trino/core-site.xml:/etc/trino/core-site.xml
     depends_on:
       namenode:
         condition: service_healthy
@@ -132,8 +117,11 @@ services:
       - ./sql:/app/sql
     environment:
       - HDFS_NAMENODE=hdfs://namenode:9000
-      - PRESTO_HOST=trino
-      - PRESTO_PORT=8080
+      - TRINO_HOST=trino
+      - TRINO_PORT=8080
+      - TRINO_USER=trino
+      - TRINO_CATALOG=hive
+      - TRINO_SCHEMA=default
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
       - POSTGRES_DB=procurement_db

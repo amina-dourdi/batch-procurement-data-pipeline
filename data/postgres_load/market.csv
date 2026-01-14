@@ -1,5 +1,5 @@
 market_id,location,type
-MKT-001,"USS Mcmillan, FPO AE 35165",Click & Collect
+MKT-001,"USS Mcmillan, FPO AE 35165",Superstore
 MKT-002,"824 Jacobs Stravenue, Jamesview, NY 64533",Click & Collect
 MKT-003,"64005 Dana Greens, Lake Scott, VT 56558",Superstore
 MKT-004,"28059 Russell Canyon, Michaelton, MH 47399",Click & Collect
@@ -8,4 +8,4 @@ MKT-006,"56342 Patrick Camp, Walkermouth, MI 40502",Superstore
 MKT-007,"03654 Tammy Harbors, Darlenefurt, TX 70783",Superstore
 MKT-008,"42940 Candace Key, Samuelhaven, DE 50989",Click & Collect
 MKT-009,"PSC 3406, Box 0883, APO AA 57032",Superstore
-MKT-010,"514 Estrada Islands Suite 482, South Elizabeth, MS 89278",Express
+MKT-010,"514 Estrada Islands Suite 482, South Elizabeth, MS 89278",Click & Collect

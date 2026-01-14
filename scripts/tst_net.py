@@ -1,13 +1,16 @@
 import os
+import sys
 from net_demand import main
 from data_quality import DataQualityGuard
 
-# 1. Configuration manuelle pour le test
-RUN_DATE = "2026-01-13"  # Assure-toi que des données existent pour cette date
+# 1. CONFIGURATION DE L'ENVIRONNEMENT
+# On définit la date de travail
+RUN_DATE = "2026-01-13" 
 os.environ["RUN_DATE"] = RUN_DATE
 
+# Configuration Postgres (Utilisation de 127.0.0.1 pour éviter l'erreur IPv6 localhost)
 DB_CONFIG = {
-    "host": "localhost",
+    "host": "127.0.0.1", 
     "port": "5432", 
     "database": "procurement_db",
     "user": "procurement_user",
@@ -15,28 +18,42 @@ DB_CONFIG = {
 }
 
 def test_creation():
-    print(f"🧪 Démarrage du test isolé pour Net Demand ({RUN_DATE})")
+    print(f"🧪 DÉMARRAGE DU TEST ISOLÉ : Net Demand ({RUN_DATE})")
+    print("-" * 50)
     
-    # 2. Initialisation du garde-fou pour voir s'il capture les erreurs de stock
-    guard = DataQualityGuard(RUN_DATE, DB_CONFIG)
-    
+    # 2. INITIALISATION DU GARDE-FOU
+    # Cette étape va tenter de se connecter à Postgres pour charger le MxOQ
     try:
-        # 3. Appel de ta fonction main de net_demand.py
+        guard = DataQualityGuard(RUN_DATE, DB_CONFIG)
+        print("✅ DataQualityGuard initialisé et règles chargées.")
+    except Exception as e:
+        print(f"❌ ÉCHEC de l'initialisation du Guard (Postgres) : {e}")
+        return
+
+    # 3. APPEL DU TRAITEMENT TRINO
+    try:
+        print(f"🔄 Exécution du calcul Trino pour la date {RUN_DATE}...")
         main(guard)
+        print("✅ La requête Trino (Calcul Net Demand) a été exécutée.")
         
-        print("✅ La requête Trino a été exécutée avec succès.")
-        
-        # 4. Affichage des erreurs de stock trouvées (s'il y en a)
+        # 4. AFFICHAGE DES RÉSULTATS DE QUALITÉ
+        print("-" * 50)
         if guard.errors:
-            print(f"⚠️ {len(guard.errors)} anomalies de stock détectées pendant le test :")
-            for err in guard.errors:
-                if err['rule_broken'] == 'IMPOSSIBLE_STOCK':
-                    print(f"   - SKU: {err['entity_id']} | Détails: {err['details']}")
+            # On filtre pour n'afficher que les anomalies de stock logiques
+            stock_errors = [e for e in guard.errors if e['rule_broken'] == 'IMPOSSIBLE_STOCK']
+            
+            if stock_errors:
+                print(f"⚠️ {len(stock_errors)} anomalies de stock détectées :")
+                for err in stock_errors:
+                    print(f"   - SKU: {err['entity_id']} | {err['details']}")
+            else:
+                print("✨ Aucune anomalie de logique de stock (Reserved > Available) détectée.")
         else:
-            print("✨ Aucune anomalie de logique de stock trouvée.")
+            print("✨ Aucune erreur de qualité signalée par le Guard.")
 
     except Exception as e:
-        print(f"❌ Le test a échoué : {e}")
+        print(f"❌ LE TEST TRINO A ÉCHOUÉ :")
+        print(f"   Détail : {e}")
 
 if __name__ == "__main__":
     test_creation()

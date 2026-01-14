@@ -45,3 +45,10 @@ class WebHDFSClient:
             for chunk in r.iter_content(chunk_size=1024 * 1024):
                 if chunk:
                     f.write(chunk)
+
+    def delete(self, path, recursive=False):
+        
+        extra = f"recursive={'true' if recursive else 'false'}"
+        url = self._url(path, "DELETE", extra=extra)
+        resp = requests.delete(url)
+        return resp.status_code == 200
