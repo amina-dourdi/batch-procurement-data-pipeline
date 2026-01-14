@@ -19,7 +19,7 @@ DATA_ROOT = os.getenv("DATA_ROOT", "/app/data")
 HDFS_BASE_URL = os.getenv("HDFS_BASE_URL", "http://namenode:9870")
 HDFS_USER = os.getenv("HDFS_USER", "root")
 
-TRINO_HOST = os.environ["TRINO_HOST"]
+TRINO_HOST = os.getenv("TRINO_HOST",'trino')
 TRINO_PORT = int(os.getenv("TRINO_PORT", 8080))
 TRINO_USER = os.getenv("TRINO_USER", "admin")
 TRINO_CATALOG = os.getenv("TRINO_CATALOG", "hive")
