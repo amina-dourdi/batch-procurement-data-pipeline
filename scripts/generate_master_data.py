@@ -2,6 +2,9 @@ import pandas as pd
 import random
 from faker import Faker
 import os
+from trino_utils import ensure_schema
+
+ensure_schema("postgres_load")
 
 # Initialize Faker
 fake = Faker()
