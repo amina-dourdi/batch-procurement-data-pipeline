@@ -157,8 +157,8 @@ def main():
     if hdfs.exists(hdfs_stock_path):
         print(f" Stock file already exists: {hdfs_stock_path}")
     else:
-            hdfs.put_file(local_stock, hdfs_stock_path, overwrite=False)
-            print(f"[OK] HDFS stock -> {hdfs_stock_path}")
+        hdfs.put_file(local_stock, hdfs_stock_path, overwrite=False)
+        print(f"[OK] HDFS stock -> {hdfs_stock_path}")
 
 if __name__ == "__main__":
     main()
