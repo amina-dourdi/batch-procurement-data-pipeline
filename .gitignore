@@ -210,8 +210,6 @@ __marimo__/
 #added
 /test
 
-/config 
-docker-compose.yml
 
 Dockerfile
 
@@ -221,5 +219,4 @@ Dockerfile
 /sql
 steps.md
 test-containers
-/data
 examen_qst.md
