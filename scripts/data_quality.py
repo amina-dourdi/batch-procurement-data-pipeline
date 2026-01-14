@@ -54,7 +54,7 @@ class DataQualityGuard:
                 
                 rules[sku] = {
                     'max': mxoq if mxoq else 999999,
-                    'pack_size': self._parse_pack_size(package_str) # نحول النص لرقم هنا
+                    'pack_size': self._parse_pack_size(package_str) 
                 }
 
             logger.info("Loaded rules for %d products.", len(rules))
@@ -104,11 +104,11 @@ class DataQualityGuard:
             return False
             
         return True
+    
     def check_order_magnitude(self, order_id, sku, quantity):
         rules = self.product_limits.get(sku)
-        max_allowed = self.product_limits.get(sku)
 
-        if max_allowed is None:
+        if rules is None:
             self.log_issue("UNKNOWN_PRODUCT", sku, "SKU not found in Master Data.")
             logger.warning("Unknown SKU detected: %s", sku)
             return False

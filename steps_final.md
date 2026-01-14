@@ -146,14 +146,14 @@ python scripts/run_pipeline_hdfs.py
 
 ## 5. Phase 3: Automation (Scheduler)
 
-To make this run automatically at **21:00** and **22:00**, run the scheduler inside the orchestrator.
+To make this run automatically at **22:00** and **23:00**, run the scheduler inside the orchestrator.
 
 ```bash
 python scripts/orchestrator_scheduler.py
 
 ```
 
-* **Status:** It will print `⏰ Orchestrator started. Scheduled times: 21:00, 22:00`.
+* **Status:** It will print `⏰ Orchestrator started. Scheduled times: 22:00, 23:00`.
 * **Action:** Leave this terminal window open. The script will sleep and trigger the workflow automatically when the time matches.
 
 ---

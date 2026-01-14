@@ -1,0 +1,2 @@
+timestamp,batch_date,rule_broken,entity_id,details,severity
+2026-01-14T04:04:27.772451,2026-01-14,PIPELINE_CRASH,SYSTEM,"TrinoUserError(type=USER_ERROR, name=TABLE_NOT_FOUND, message=""line 1:40: Table 'hive.output.supplier_orders_2026_01_14' does not exist"", query_id=20260114_030428_00198_2jw9e)",HIGH
