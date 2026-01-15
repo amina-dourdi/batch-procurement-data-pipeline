@@ -1,0 +1,18 @@
+{
+  "supplier_id": "SUP-005",
+  "run_date": "2026-01-15",
+  "items": [
+    {
+      "sku": "SKU-0144",
+      "quantity": 100
+    },
+    {
+      "sku": "SKU-0262",
+      "quantity": 60
+    },
+    {
+      "sku": "SKU-0275",
+      "quantity": 12
+    }
+  ]
+}

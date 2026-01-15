@@ -1,0 +1,4 @@
+timestamp,batch_date,rule_broken,entity_id,details,severity
+2026-01-15T01:04:05.520153,2026-01-15,UNKNOWN_PRODUCT,SKU-99999-GHOST,SKU not found in Master Data.,HIGH
+2026-01-15T01:07:41.105280,2026-01-15,PIPELINE_CRASH,SYSTEM,"TrinoExternalError(type=EXTERNAL, name=HIVE_BAD_DATA, message=""Not valid Parquet file: hdfs://namenode:9000/output/supplier_orders/2026-01-15/SUP-007.json expected magic number: PAR1 got:  ]
+}"", query_id=20260110_074111_00095_ubfzt)",HIGH

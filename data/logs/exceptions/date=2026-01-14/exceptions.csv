@@ -1,0 +1,2 @@
+timestamp,batch_date,rule_broken,entity_id,details,severity
+2026-01-14T17:37:25.309265,2026-01-14,PIPELINE_CRASH,SYSTEM,"not enough values to unpack (expected 4, got 1)",HIGH

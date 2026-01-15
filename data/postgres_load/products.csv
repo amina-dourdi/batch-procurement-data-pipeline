@@ -1,301 +1,300 @@
 sku,name,category,unit_price,supplier_id,MOQ,MxOQ,package,leadtime
-SKU-0001,Product Smile 23,Canned Goods,54.37,SUP-005,10,180,Single Unit,4
-SKU-0002,Product Power 73,Beverages,97.74,SUP-008,50,400,Single Unit,8
-SKU-0003,Product Fish 52,Bakery,6.38,SUP-001,10,190,Single Unit,13
-SKU-0004,Product Official 1,Meat,143.31,SUP-010,100,1800,Single Unit,11
-SKU-0005,Product Fly 37,Canned Goods,92.49,SUP-012,10,170,Single Unit,5
-SKU-0006,Product Develop 56,Canned Goods,100.58,SUP-003,10,150,Pallet,2
-SKU-0007,Product Stock 75,Bakery,63.58,SUP-006,10,200,Box of 6,4
-SKU-0008,Product Policy 84,Cleaning,111.13,SUP-004,10,100,Single Unit,4
-SKU-0009,Product Fund 60,Cleaning,36.32,SUP-020,10,180,Box of 6,1
-SKU-0010,Product Letter 57,Dairy,81.37,SUP-020,100,2000,Pallet,8
-SKU-0011,Product Republican 28,Dairy,132.78,SUP-012,100,600,Box of 24,12
-SKU-0012,Product Much 61,Dairy,8.01,SUP-010,10,200,Single Unit,5
-SKU-0013,Product Student 95,Beverages,99.97,SUP-007,50,250,Pallet,3
-SKU-0014,Product Condition 85,Meat,21.15,SUP-010,10,100,Single Unit,4
-SKU-0015,Product Become 37,Canned Goods,40.68,SUP-009,100,800,Box of 12,6
-SKU-0016,Product Myself 85,Dairy,81.07,SUP-011,100,1200,Box of 24,14
-SKU-0017,Product Property 80,Meat,76.18,SUP-006,100,1900,Single Unit,3
-SKU-0018,Product Government 12,Meat,60.78,SUP-006,100,700,Box of 6,1
-SKU-0019,Product Tell 97,Bakery,41.79,SUP-020,10,100,Box of 6,8
-SKU-0020,Product Easy 87,Beverages,136.2,SUP-003,10,200,Box of 6,2
-SKU-0021,Product Force 29,Beverages,12.38,SUP-006,10,130,Single Unit,14
-SKU-0022,Product Sure 26,Canned Goods,92.69,SUP-018,10,170,Box of 24,9
-SKU-0023,Product Choice 4,Beverages,124.1,SUP-011,10,200,Pallet,2
-SKU-0024,Product Any 32,Cleaning,142.56,SUP-018,10,70,Box of 24,7
-SKU-0025,Product May 79,Cleaning,58.41,SUP-002,50,800,Pallet,11
-SKU-0026,Product To 99,Bakery,70.19,SUP-012,10,60,Box of 6,14
-SKU-0027,Product Baby 59,Produce,99.17,SUP-012,100,800,Pallet,6
-SKU-0028,Product Join 81,Meat,90.71,SUP-004,10,140,Pallet,13
-SKU-0029,Product Parent 25,Bakery,134.33,SUP-011,50,700,Box of 12,10
-SKU-0030,Product Serious 90,Meat,13.96,SUP-015,100,1600,Single Unit,2
-SKU-0031,Product If 64,Beverages,64.1,SUP-012,100,900,Box of 6,14
-SKU-0032,Product Instead 32,Dairy,4.79,SUP-020,100,1300,Box of 6,4
-SKU-0033,Product Choose 84,Bakery,137.82,SUP-011,10,140,Box of 12,3
-SKU-0034,Product Rise 1,Beverages,149.19,SUP-003,100,1800,Single Unit,11
-SKU-0035,Product Walk 97,Canned Goods,78.2,SUP-001,100,800,Pallet,11
-SKU-0036,Product Traditional 99,Meat,87.99,SUP-002,10,160,Single Unit,12
-SKU-0037,Product Value 14,Produce,30.91,SUP-019,50,250,Box of 24,14
-SKU-0038,Product Start 55,Produce,148.7,SUP-006,100,2000,Single Unit,7
-SKU-0039,Product Discuss 23,Dairy,87.54,SUP-012,10,170,Box of 12,10
-SKU-0040,Product Summer 90,Meat,13.85,SUP-015,100,1500,Box of 6,7
-SKU-0041,Product National 60,Meat,39.7,SUP-007,10,70,Box of 12,8
-SKU-0042,Product Apply 72,Produce,136.67,SUP-008,100,1200,Single Unit,11
-SKU-0043,Product Enjoy 16,Dairy,121.25,SUP-014,10,70,Box of 24,8
-SKU-0044,Product Loss 18,Dairy,136.52,SUP-004,100,1900,Box of 12,5
-SKU-0045,Product Suddenly 60,Canned Goods,14.94,SUP-004,10,180,Box of 12,8
-SKU-0046,Product Region 68,Cleaning,64.08,SUP-010,100,1800,Pallet,1
-SKU-0047,Product Operation 77,Beverages,117.78,SUP-011,50,400,Pallet,7
-SKU-0048,Product Free 97,Dairy,15.11,SUP-019,50,600,Single Unit,14
-SKU-0049,Product Vote 57,Cleaning,88.45,SUP-020,100,1800,Box of 12,6
-SKU-0050,Product Position 93,Produce,76.23,SUP-013,50,450,Box of 24,7
-SKU-0051,Product Wait 65,Dairy,20.87,SUP-011,100,1800,Single Unit,13
-SKU-0052,Product Last 71,Meat,123.33,SUP-018,50,550,Single Unit,3
-SKU-0053,Product Like 21,Meat,80.47,SUP-007,10,80,Box of 12,9
-SKU-0054,Product Six 61,Canned Goods,144.64,SUP-005,10,180,Box of 12,5
-SKU-0055,Product Listen 34,Cleaning,96.31,SUP-005,50,500,Single Unit,4
-SKU-0056,Product Society 32,Bakery,123.45,SUP-014,50,400,Box of 6,12
-SKU-0057,Product Though 82,Bakery,129.36,SUP-011,100,1700,Box of 6,1
-SKU-0058,Product Factor 99,Canned Goods,124.15,SUP-013,50,300,Pallet,12
-SKU-0059,Product Star 67,Bakery,18.57,SUP-012,100,1800,Single Unit,8
-SKU-0060,Product Memory 81,Canned Goods,42.27,SUP-016,100,1800,Box of 24,11
-SKU-0061,Product Edge 36,Canned Goods,73.32,SUP-019,50,450,Box of 12,10
-SKU-0062,Product Less 10,Cleaning,58.41,SUP-003,50,550,Box of 12,8
-SKU-0063,Product Sell 37,Produce,6.11,SUP-020,100,1100,Box of 12,2
-SKU-0064,Product Easy 35,Beverages,103.25,SUP-014,50,700,Single Unit,13
-SKU-0065,Product Government 41,Canned Goods,109.29,SUP-003,100,1400,Box of 12,3
-SKU-0066,Product Walk 70,Bakery,104.78,SUP-009,10,200,Single Unit,3
-SKU-0067,Product Be 18,Beverages,117.93,SUP-017,50,250,Single Unit,13
-SKU-0068,Product City 30,Bakery,68.47,SUP-003,50,750,Box of 12,10
-SKU-0069,Product Identify 89,Meat,70.84,SUP-014,50,450,Box of 24,6
-SKU-0070,Product Claim 91,Cleaning,146.37,SUP-008,50,700,Box of 24,6
-SKU-0071,Product Difficult 9,Meat,93.18,SUP-019,50,600,Box of 6,9
-SKU-0072,Product Join 53,Produce,51.31,SUP-016,10,100,Box of 24,7
-SKU-0073,Product Give 70,Dairy,6.95,SUP-008,50,550,Box of 12,12
-SKU-0074,Product Man 54,Bakery,51.49,SUP-003,100,1100,Box of 24,1
-SKU-0075,Product Assume 27,Produce,28.7,SUP-002,50,950,Single Unit,7
-SKU-0076,Product There 54,Dairy,135.05,SUP-009,10,150,Pallet,14
-SKU-0077,Product Improve 99,Produce,102.28,SUP-001,10,60,Box of 24,5
-SKU-0078,Product Pattern 90,Canned Goods,35.62,SUP-019,50,600,Pallet,6
-SKU-0079,Product Again 98,Beverages,107.28,SUP-014,10,140,Pallet,3
-SKU-0080,Product Parent 49,Beverages,13.77,SUP-002,10,200,Box of 6,7
-SKU-0081,Product Me 1,Produce,82.79,SUP-004,100,1300,Box of 12,9
-SKU-0082,Product Yes 46,Produce,124.43,SUP-020,50,750,Box of 6,2
-SKU-0083,Product Fire 97,Beverages,127.67,SUP-012,50,700,Single Unit,12
-SKU-0084,Product In 54,Produce,5.04,SUP-016,10,140,Box of 6,4
-SKU-0085,Product Nothing 96,Beverages,146.63,SUP-015,10,110,Box of 24,8
-SKU-0086,Product Simple 70,Meat,37.32,SUP-014,10,130,Single Unit,10
-SKU-0087,Product Such 78,Meat,137.75,SUP-014,50,450,Box of 24,2
-SKU-0088,Product Water 29,Meat,39.8,SUP-010,10,200,Box of 24,6
-SKU-0089,Product Method 29,Beverages,60.89,SUP-016,50,600,Single Unit,1
-SKU-0090,Product Explain 56,Beverages,87.54,SUP-005,10,60,Pallet,11
-SKU-0091,Product Mention 4,Beverages,7.49,SUP-019,100,600,Pallet,6
-SKU-0092,Product Improve 44,Canned Goods,132.7,SUP-005,50,650,Single Unit,2
-SKU-0093,Product Relate 87,Dairy,42.18,SUP-004,10,90,Box of 6,2
-SKU-0094,Product Success 52,Dairy,76.91,SUP-017,50,500,Box of 24,10
-SKU-0095,Product Shake 22,Meat,42.69,SUP-011,100,1400,Pallet,13
-SKU-0096,Product Though 60,Meat,148.22,SUP-003,100,1500,Pallet,6
-SKU-0097,Product Wide 17,Produce,139.58,SUP-006,100,1400,Box of 12,2
-SKU-0098,Product Prevent 69,Meat,101.72,SUP-013,50,700,Box of 12,4
-SKU-0099,Product Agreement 51,Canned Goods,83.24,SUP-014,50,550,Box of 6,6
-SKU-0100,Product Person 73,Bakery,75.76,SUP-020,10,200,Pallet,13
-SKU-0101,Product Recognize 4,Produce,96.17,SUP-014,100,1200,Box of 6,6
-SKU-0102,Product Because 83,Canned Goods,127.01,SUP-009,50,500,Box of 6,4
-SKU-0103,Product Later 18,Beverages,47.83,SUP-020,50,850,Pallet,9
-SKU-0104,Product Trial 60,Produce,99.27,SUP-012,10,190,Box of 24,6
-SKU-0105,Product Court 7,Dairy,73.85,SUP-010,50,900,Pallet,2
-SKU-0106,Product Ever 49,Dairy,23.3,SUP-018,50,500,Box of 12,1
-SKU-0107,Product Generation 28,Beverages,146.07,SUP-003,50,450,Box of 6,6
-SKU-0108,Product Look 42,Canned Goods,48.98,SUP-008,50,1000,Box of 24,13
-SKU-0109,Product Green 98,Canned Goods,142.12,SUP-015,50,600,Box of 24,13
-SKU-0110,Product Until 49,Canned Goods,128.3,SUP-011,10,80,Pallet,12
-SKU-0111,Product Fall 97,Cleaning,60.16,SUP-003,100,1200,Pallet,10
-SKU-0112,Product Theory 54,Dairy,22.52,SUP-004,100,1000,Box of 24,11
-SKU-0113,Product Entire 11,Cleaning,10.42,SUP-019,10,130,Box of 6,9
-SKU-0114,Product Many 3,Cleaning,114.47,SUP-015,10,200,Box of 6,14
-SKU-0115,Product So 70,Cleaning,105.4,SUP-014,10,70,Box of 6,3
-SKU-0116,Product Area 45,Bakery,113.32,SUP-009,10,190,Box of 12,6
-SKU-0117,Product Door 84,Cleaning,140.96,SUP-019,10,140,Box of 12,2
-SKU-0118,Product Authority 100,Produce,49.73,SUP-003,100,800,Single Unit,4
-SKU-0119,Product Reach 6,Bakery,102.73,SUP-001,10,90,Single Unit,12
-SKU-0120,Product Somebody 4,Bakery,19.23,SUP-002,50,500,Box of 6,6
-SKU-0121,Product End 26,Dairy,64.94,SUP-007,100,1100,Box of 24,1
-SKU-0122,Product Those 3,Produce,68.0,SUP-009,50,300,Box of 12,10
-SKU-0123,Product Pretty 20,Cleaning,143.12,SUP-020,10,150,Box of 12,1
-SKU-0124,Product Edge 17,Canned Goods,7.72,SUP-008,100,1400,Pallet,12
-SKU-0125,Product Material 86,Beverages,38.02,SUP-008,50,450,Box of 12,9
-SKU-0126,Product Building 73,Dairy,38.23,SUP-016,10,200,Box of 12,4
-SKU-0127,Product Yourself 28,Meat,142.59,SUP-010,10,130,Box of 12,3
-SKU-0128,Product Make 90,Beverages,76.77,SUP-019,10,180,Box of 12,6
-SKU-0129,Product Establish 99,Bakery,139.89,SUP-007,10,200,Single Unit,12
-SKU-0130,Product Home 22,Meat,47.46,SUP-004,10,70,Box of 24,3
-SKU-0131,Product Police 78,Canned Goods,107.68,SUP-001,50,800,Box of 12,1
-SKU-0132,Product Small 92,Cleaning,21.54,SUP-002,100,1700,Box of 6,13
-SKU-0133,Product Building 100,Meat,64.5,SUP-015,100,1700,Box of 24,13
-SKU-0134,Product Tell 21,Meat,134.36,SUP-016,100,2000,Box of 6,14
-SKU-0135,Product Foreign 14,Produce,98.73,SUP-014,50,950,Single Unit,4
-SKU-0136,Product Particular 4,Cleaning,37.62,SUP-014,50,450,Box of 6,10
-SKU-0137,Product Woman 40,Dairy,117.06,SUP-004,10,200,Single Unit,13
-SKU-0138,Product Parent 87,Meat,25.67,SUP-014,100,700,Single Unit,6
-SKU-0139,Product Whatever 49,Cleaning,117.98,SUP-003,100,500,Pallet,1
-SKU-0140,Product Industry 92,Beverages,105.73,SUP-012,100,1200,Pallet,7
-SKU-0141,Product Decide 10,Dairy,10.01,SUP-009,10,110,Single Unit,13
-SKU-0142,Product Person 89,Canned Goods,123.84,SUP-004,10,200,Box of 12,3
-SKU-0143,Product Then 81,Dairy,42.74,SUP-020,10,180,Pallet,11
-SKU-0144,Product Eight 14,Cleaning,8.56,SUP-005,100,1100,Single Unit,12
-SKU-0145,Product Same 99,Cleaning,125.34,SUP-003,50,800,Box of 6,14
-SKU-0146,Product Fish 88,Meat,44.59,SUP-009,50,900,Pallet,1
-SKU-0147,Product Plan 16,Canned Goods,7.38,SUP-015,100,1100,Box of 12,6
-SKU-0148,Product Style 73,Cleaning,46.83,SUP-019,50,250,Pallet,5
-SKU-0149,Product Stay 6,Canned Goods,140.71,SUP-003,50,1000,Single Unit,1
-SKU-0150,Product Hand 69,Canned Goods,97.72,SUP-015,100,1200,Box of 12,11
-SKU-0151,Product Later 85,Dairy,146.49,SUP-019,100,1500,Box of 24,9
-SKU-0152,Product Hospital 9,Produce,7.83,SUP-006,10,180,Box of 24,4
-SKU-0153,Product Move 83,Canned Goods,74.71,SUP-004,10,130,Box of 24,10
-SKU-0154,Product Growth 2,Dairy,110.72,SUP-016,50,1000,Pallet,10
-SKU-0155,Product Time 54,Dairy,107.48,SUP-001,10,120,Box of 12,6
-SKU-0156,Product Test 63,Cleaning,57.99,SUP-002,50,900,Pallet,5
-SKU-0157,Product Born 56,Canned Goods,111.66,SUP-019,10,50,Box of 6,11
-SKU-0158,Product High 82,Bakery,24.35,SUP-001,50,600,Pallet,13
-SKU-0159,Product Vote 59,Beverages,144.78,SUP-001,100,1900,Box of 12,6
-SKU-0160,Product Second 20,Meat,63.31,SUP-007,100,1000,Single Unit,10
-SKU-0161,Product Learn 23,Meat,105.69,SUP-016,10,80,Box of 12,6
-SKU-0162,Product Similar 67,Bakery,10.19,SUP-003,50,500,Box of 24,10
-SKU-0163,Product Rather 35,Canned Goods,46.54,SUP-012,10,100,Box of 6,14
-SKU-0164,Product Power 69,Canned Goods,43.6,SUP-015,100,600,Pallet,11
-SKU-0165,Product Stage 62,Produce,37.73,SUP-019,50,700,Box of 6,2
-SKU-0166,Product Make 56,Bakery,64.91,SUP-012,50,1000,Box of 24,8
-SKU-0167,Product That 94,Canned Goods,131.66,SUP-006,50,850,Pallet,7
-SKU-0168,Product Person 35,Cleaning,45.04,SUP-001,50,600,Box of 6,9
-SKU-0169,Product Future 32,Bakery,140.4,SUP-011,50,650,Box of 6,14
-SKU-0170,Product Then 12,Meat,50.26,SUP-011,100,1700,Pallet,9
-SKU-0171,Product Family 58,Dairy,73.45,SUP-002,10,170,Pallet,1
-SKU-0172,Product Either 97,Meat,31.8,SUP-011,10,190,Box of 12,13
-SKU-0173,Product Majority 73,Canned Goods,92.81,SUP-009,10,130,Box of 24,11
-SKU-0174,Product Poor 86,Beverages,91.14,SUP-018,50,350,Single Unit,6
-SKU-0175,Product Hundred 44,Cleaning,64.69,SUP-015,50,500,Box of 6,4
-SKU-0176,Product Air 64,Beverages,58.32,SUP-012,10,130,Pallet,2
-SKU-0177,Product Today 42,Meat,53.51,SUP-015,10,70,Box of 6,11
-SKU-0178,Product Court 63,Produce,8.19,SUP-001,50,900,Box of 6,6
-SKU-0179,Product Difference 46,Meat,42.53,SUP-017,50,1000,Box of 12,7
-SKU-0180,Product Subject 34,Dairy,130.7,SUP-002,50,500,Single Unit,4
-SKU-0181,Product Grow 36,Beverages,68.71,SUP-013,50,950,Single Unit,10
-SKU-0182,Product Up 77,Cleaning,68.63,SUP-014,10,160,Pallet,7
-SKU-0183,Product Science 36,Bakery,95.39,SUP-008,100,1500,Box of 24,3
-SKU-0184,Product Only 2,Beverages,20.29,SUP-006,10,70,Pallet,13
-SKU-0185,Product Nation 25,Meat,147.34,SUP-010,100,1100,Pallet,7
-SKU-0186,Product Bed 31,Dairy,104.4,SUP-010,100,2000,Single Unit,10
-SKU-0187,Product Service 53,Meat,116.64,SUP-009,50,550,Box of 24,6
-SKU-0188,Product Middle 72,Cleaning,58.24,SUP-007,50,550,Single Unit,1
-SKU-0189,Product Son 31,Dairy,95.21,SUP-008,10,190,Single Unit,7
-SKU-0190,Product Rock 61,Canned Goods,136.61,SUP-017,100,1300,Box of 24,9
-SKU-0191,Product Race 92,Beverages,109.56,SUP-016,100,800,Box of 24,2
-SKU-0192,Product Military 58,Produce,48.67,SUP-020,50,250,Box of 6,10
-SKU-0193,Product Structure 3,Cleaning,36.43,SUP-012,50,700,Box of 6,6
-SKU-0194,Product Better 38,Cleaning,19.67,SUP-016,10,160,Pallet,3
-SKU-0195,Product Do 52,Canned Goods,132.88,SUP-012,50,850,Box of 24,8
-SKU-0196,Product Role 32,Bakery,35.9,SUP-002,100,1300,Box of 6,12
-SKU-0197,Product Follow 85,Beverages,124.92,SUP-010,10,60,Single Unit,8
-SKU-0198,Product Party 48,Produce,54.08,SUP-002,10,200,Box of 24,6
-SKU-0199,Product Material 71,Beverages,78.92,SUP-020,10,130,Box of 12,4
-SKU-0200,Product Nice 45,Canned Goods,47.34,SUP-002,50,450,Single Unit,10
-SKU-0201,Product Large 96,Cleaning,16.62,SUP-013,50,500,Pallet,13
-SKU-0202,Product Oil 43,Beverages,36.51,SUP-004,10,190,Single Unit,12
-SKU-0203,Product He 90,Produce,96.6,SUP-007,100,1500,Box of 12,12
-SKU-0204,Product Long 35,Produce,33.38,SUP-010,10,190,Box of 12,14
-SKU-0205,Product Follow 33,Produce,141.38,SUP-016,50,400,Box of 6,8
-SKU-0206,Product During 16,Produce,22.47,SUP-007,10,110,Box of 12,11
-SKU-0207,Product Set 25,Meat,133.42,SUP-011,10,160,Pallet,6
-SKU-0208,Product Four 16,Bakery,86.7,SUP-016,100,1300,Box of 24,14
-SKU-0209,Product Situation 69,Beverages,98.41,SUP-016,100,1800,Single Unit,14
-SKU-0210,Product Sound 89,Dairy,58.55,SUP-008,50,600,Pallet,5
-SKU-0211,Product Crime 25,Meat,2.99,SUP-006,50,250,Single Unit,5
-SKU-0212,Product Direction 95,Bakery,138.71,SUP-008,100,1800,Box of 6,6
-SKU-0213,Product Member 36,Cleaning,6.9,SUP-009,100,1200,Single Unit,10
-SKU-0214,Product Shake 76,Dairy,115.48,SUP-001,10,60,Single Unit,2
-SKU-0215,Product Soon 68,Beverages,118.6,SUP-004,10,60,Pallet,6
-SKU-0216,Product Picture 37,Bakery,135.3,SUP-011,100,1300,Box of 24,10
-SKU-0217,Product Black 25,Cleaning,44.12,SUP-008,100,1400,Single Unit,5
-SKU-0218,Product Fine 30,Meat,120.06,SUP-013,50,850,Pallet,12
-SKU-0219,Product Herself 23,Meat,90.54,SUP-009,10,160,Single Unit,4
-SKU-0220,Product Five 2,Dairy,103.26,SUP-018,100,900,Single Unit,5
-SKU-0221,Product Section 69,Canned Goods,21.86,SUP-019,50,700,Pallet,8
-SKU-0222,Product Card 36,Bakery,145.28,SUP-004,10,110,Pallet,11
-SKU-0223,Product Answer 7,Produce,21.67,SUP-011,100,1700,Pallet,1
-SKU-0224,Product On 38,Canned Goods,8.15,SUP-013,100,1100,Single Unit,14
-SKU-0225,Product Save 17,Beverages,135.65,SUP-002,50,550,Box of 12,10
-SKU-0226,Product Pull 97,Produce,26.18,SUP-007,100,700,Box of 12,8
-SKU-0227,Product Military 14,Bakery,43.7,SUP-011,100,1300,Pallet,10
-SKU-0228,Product Turn 2,Bakery,136.78,SUP-016,10,190,Pallet,9
-SKU-0229,Product Painting 37,Bakery,62.97,SUP-016,10,120,Box of 12,10
-SKU-0230,Product Manager 62,Meat,147.02,SUP-017,100,1400,Pallet,1
-SKU-0231,Product Let 44,Canned Goods,56.47,SUP-012,50,650,Single Unit,1
-SKU-0232,Product Create 7,Dairy,113.49,SUP-003,100,1500,Single Unit,9
-SKU-0233,Product Entire 62,Meat,31.89,SUP-008,10,110,Box of 24,1
-SKU-0234,Product Build 9,Bakery,92.51,SUP-016,10,70,Box of 24,7
-SKU-0235,Product Institution 63,Canned Goods,19.85,SUP-005,100,800,Single Unit,4
-SKU-0236,Product Back 74,Beverages,130.17,SUP-013,100,1600,Box of 24,4
-SKU-0237,Product Professional 88,Meat,119.41,SUP-016,10,150,Box of 24,12
-SKU-0238,Product Argue 20,Produce,65.09,SUP-012,10,110,Single Unit,13
-SKU-0239,Product Church 73,Beverages,122.92,SUP-001,100,1100,Box of 12,3
-SKU-0240,Product Fly 11,Cleaning,100.73,SUP-008,100,1300,Box of 6,8
-SKU-0241,Product Energy 16,Meat,69.72,SUP-017,10,100,Box of 24,13
-SKU-0242,Product Open 98,Dairy,106.13,SUP-004,10,100,Box of 24,13
-SKU-0243,Product Keep 78,Bakery,121.22,SUP-015,100,700,Box of 6,12
-SKU-0244,Product Pick 80,Dairy,7.97,SUP-006,50,900,Box of 24,6
-SKU-0245,Product Draw 100,Beverages,102.46,SUP-016,50,900,Box of 12,4
-SKU-0246,Product Necessary 49,Canned Goods,59.13,SUP-001,10,170,Pallet,14
-SKU-0247,Product Little 57,Canned Goods,27.62,SUP-001,50,300,Box of 12,14
-SKU-0248,Product Finish 76,Produce,50.86,SUP-015,50,600,Pallet,6
-SKU-0249,Product Laugh 40,Meat,27.34,SUP-017,100,900,Box of 24,6
-SKU-0250,Product Outside 80,Canned Goods,62.99,SUP-003,10,150,Box of 6,12
-SKU-0251,Product As 79,Produce,76.41,SUP-011,100,1100,Box of 12,5
-SKU-0252,Product Sister 13,Meat,35.61,SUP-014,10,150,Box of 12,4
-SKU-0253,Product Yourself 98,Dairy,79.46,SUP-020,50,900,Single Unit,6
-SKU-0254,Product Despite 81,Cleaning,70.27,SUP-015,10,200,Box of 24,14
-SKU-0255,Product Development 34,Produce,109.89,SUP-011,100,1600,Box of 6,6
-SKU-0256,Product Recent 11,Beverages,17.44,SUP-008,10,180,Box of 6,10
-SKU-0257,Product Close 31,Dairy,54.04,SUP-006,10,100,Pallet,4
-SKU-0258,Product Consumer 71,Produce,100.92,SUP-004,50,250,Box of 6,10
-SKU-0259,Product Bad 21,Bakery,101.05,SUP-003,50,1000,Box of 24,6
-SKU-0260,Product Able 53,Beverages,107.98,SUP-014,50,850,Box of 12,9
-SKU-0261,Product Little 89,Produce,66.67,SUP-002,10,50,Box of 6,9
-SKU-0262,Product Phone 61,Beverages,140.51,SUP-005,50,1000,Box of 12,10
-SKU-0263,Product Film 5,Meat,88.93,SUP-017,100,1300,Pallet,8
-SKU-0264,Product Each 37,Canned Goods,50.97,SUP-012,10,110,Single Unit,2
-SKU-0265,Product Seat 37,Beverages,33.91,SUP-015,10,100,Pallet,7
-SKU-0266,Product Scientist 59,Dairy,32.64,SUP-003,10,50,Box of 12,3
-SKU-0267,Product Avoid 88,Canned Goods,134.01,SUP-012,50,300,Box of 6,4
-SKU-0268,Product East 34,Beverages,103.13,SUP-003,10,80,Box of 6,9
-SKU-0269,Product Store 81,Bakery,108.07,SUP-001,100,1000,Pallet,4
-SKU-0270,Product Perform 85,Beverages,53.53,SUP-013,10,130,Pallet,3
-SKU-0271,Product Summer 26,Produce,42.71,SUP-012,100,600,Single Unit,14
-SKU-0272,Product Large 15,Bakery,102.03,SUP-019,50,350,Box of 12,1
-SKU-0273,Product Off 29,Meat,51.56,SUP-008,100,600,Box of 6,4
-SKU-0274,Product Raise 20,Produce,85.62,SUP-005,100,1900,Box of 12,3
-SKU-0275,Product When 35,Bakery,136.72,SUP-005,10,60,Box of 12,5
-SKU-0276,Product The 19,Canned Goods,145.78,SUP-020,100,1900,Pallet,9
-SKU-0277,Product Away 8,Bakery,77.43,SUP-002,100,1000,Pallet,6
-SKU-0278,Product Company 40,Dairy,135.77,SUP-016,100,1400,Box of 24,10
-SKU-0279,Product Physical 96,Cleaning,81.57,SUP-020,10,150,Single Unit,1
-SKU-0280,Product Thank 73,Dairy,109.21,SUP-007,10,140,Pallet,13
-SKU-0281,Product Will 37,Cleaning,80.8,SUP-005,50,1000,Pallet,8
-SKU-0282,Product Leg 16,Cleaning,47.09,SUP-003,10,190,Box of 12,7
-SKU-0283,Product Management 89,Meat,71.69,SUP-011,100,1800,Box of 24,4
-SKU-0284,Product Fly 90,Bakery,147.31,SUP-008,100,1000,Box of 6,11
-SKU-0285,Product Interesting 35,Bakery,112.72,SUP-020,50,550,Box of 6,3
-SKU-0286,Product Month 70,Beverages,45.27,SUP-020,10,200,Box of 24,7
-SKU-0287,Product Minute 57,Bakery,60.29,SUP-017,100,1800,Box of 12,5
-SKU-0288,Product Be 77,Produce,97.71,SUP-017,100,2000,Box of 24,10
-SKU-0289,Product Among 56,Cleaning,29.6,SUP-001,100,1500,Box of 6,8
-SKU-0290,Product Simple 42,Produce,44.3,SUP-001,10,200,Single Unit,12
-SKU-0291,Product Pm 33,Cleaning,53.75,SUP-016,50,450,Box of 6,8
-SKU-0292,Product Agree 12,Dairy,17.34,SUP-003,50,900,Box of 6,9
-SKU-0293,Product Drop 87,Bakery,9.82,SUP-006,100,1000,Pallet,2
-SKU-0294,Product Think 74,Bakery,72.61,SUP-003,100,2000,Box of 6,12
-SKU-0295,Product People 3,Meat,38.28,SUP-016,10,140,Single Unit,7
-SKU-0296,Product Southern 87,Cleaning,84.05,SUP-003,100,800,Single Unit,9
-SKU-0297,Product Term 35,Meat,129.28,SUP-011,100,800,Box of 12,5
-SKU-0298,Product Part 6,Canned Goods,55.86,SUP-016,10,90,Pallet,3
-SKU-0299,Product Source 97,Bakery,62.84,SUP-004,10,170,Box of 6,9
-SKU-0300,Product Continue 61,Produce,38.29,SUP-003,100,900,Box of 6,14
+SKU-0001,Product Smile 23,Beverages,112.57,SUP-017,100,1600,Box of 12,8
+SKU-0002,Product Power 73,Cleaning,82.88,SUP-003,10,110,Pallet,13
+SKU-0003,Product Fish 52,Cleaning,4.89,SUP-014,100,1700,Single Unit,12
+SKU-0004,Product Official 1,Produce,111.91,SUP-014,100,500,Pallet,5
+SKU-0005,Product Fly 37,Produce,118.23,SUP-012,100,2000,Single Unit,12
+SKU-0006,Product Develop 56,Cleaning,107.5,SUP-002,50,850,Single Unit,13
+SKU-0007,Product Stock 75,Bakery,91.52,SUP-008,50,450,Box of 24,3
+SKU-0008,Product Policy 84,Meat,129.38,SUP-011,100,1900,Box of 6,11
+SKU-0009,Product Fund 60,Cleaning,139.36,SUP-007,50,850,Box of 6,14
+SKU-0010,Product Letter 57,Canned Goods,97.25,SUP-003,50,550,Box of 12,4
+SKU-0011,Product Republican 28,Bakery,70.35,SUP-014,10,170,Box of 12,4
+SKU-0012,Product Much 61,Dairy,14.96,SUP-019,50,850,Box of 24,12
+SKU-0013,Product Student 95,Beverages,145.73,SUP-009,100,1000,Box of 12,13
+SKU-0014,Product Condition 85,Cleaning,52.68,SUP-013,10,130,Box of 24,1
+SKU-0015,Product Become 37,Beverages,6.76,SUP-011,50,450,Box of 12,6
+SKU-0016,Product Myself 85,Beverages,59.11,SUP-015,50,750,Single Unit,9
+SKU-0017,Product Property 80,Cleaning,6.97,SUP-002,50,1000,Pallet,7
+SKU-0018,Product Government 12,Bakery,72.18,SUP-015,10,100,Box of 6,7
+SKU-0019,Product Tell 97,Beverages,36.09,SUP-004,10,200,Box of 6,12
+SKU-0020,Product Easy 87,Cleaning,43.92,SUP-009,10,150,Single Unit,9
+SKU-0021,Product Force 29,Meat,5.18,SUP-007,50,500,Box of 12,5
+SKU-0022,Product Sure 26,Dairy,53.17,SUP-010,50,300,Box of 6,9
+SKU-0023,Product Choice 4,Meat,15.61,SUP-008,50,500,Box of 6,10
+SKU-0024,Product Any 32,Beverages,45.59,SUP-001,10,130,Box of 24,3
+SKU-0025,Product May 79,Beverages,144.15,SUP-001,10,130,Box of 6,5
+SKU-0026,Product To 99,Dairy,131.06,SUP-017,10,190,Pallet,4
+SKU-0027,Product Baby 59,Dairy,81.99,SUP-013,10,150,Pallet,7
+SKU-0028,Product Join 81,Canned Goods,91.73,SUP-019,10,60,Box of 6,4
+SKU-0029,Product Parent 25,Dairy,19.78,SUP-007,100,800,Box of 24,7
+SKU-0030,Product Serious 90,Cleaning,106.12,SUP-020,10,60,Single Unit,11
+SKU-0031,Product If 64,Canned Goods,128.26,SUP-009,10,150,Pallet,2
+SKU-0032,Product Instead 32,Cleaning,27.41,SUP-015,100,1800,Box of 24,9
+SKU-0033,Product Choose 84,Produce,6.34,SUP-002,100,1200,Box of 6,5
+SKU-0034,Product Rise 1,Beverages,131.96,SUP-009,50,750,Pallet,4
+SKU-0035,Product Walk 97,Canned Goods,124.56,SUP-019,10,50,Single Unit,14
+SKU-0036,Product Traditional 99,Bakery,133.31,SUP-016,50,800,Box of 12,9
+SKU-0037,Product Value 14,Meat,5.09,SUP-010,10,120,Box of 6,5
+SKU-0038,Product Start 55,Dairy,25.05,SUP-014,100,900,Box of 12,14
+SKU-0039,Product Discuss 23,Canned Goods,32.41,SUP-001,100,800,Single Unit,6
+SKU-0040,Product Summer 90,Bakery,14.78,SUP-012,10,190,Box of 24,2
+SKU-0041,Product National 60,Bakery,85.66,SUP-012,100,1800,Box of 24,5
+SKU-0042,Product Apply 72,Meat,77.41,SUP-013,100,1400,Box of 6,3
+SKU-0043,Product Enjoy 16,Produce,134.5,SUP-010,50,1000,Box of 6,6
+SKU-0044,Product Loss 18,Dairy,90.78,SUP-005,10,130,Box of 12,5
+SKU-0045,Product Suddenly 60,Dairy,103.09,SUP-010,10,150,Box of 12,10
+SKU-0046,Product Region 68,Bakery,116.82,SUP-003,50,250,Box of 12,5
+SKU-0047,Product Operation 77,Cleaning,63.81,SUP-017,10,200,Box of 12,4
+SKU-0048,Product Free 97,Canned Goods,35.83,SUP-001,10,170,Box of 6,6
+SKU-0049,Product Vote 57,Bakery,11.74,SUP-014,10,70,Box of 6,7
+SKU-0050,Product Position 93,Cleaning,14.22,SUP-010,10,90,Pallet,3
+SKU-0051,Product Wait 65,Dairy,114.09,SUP-017,10,110,Box of 12,12
+SKU-0052,Product Last 71,Meat,3.46,SUP-012,50,400,Box of 12,5
+SKU-0053,Product Like 21,Canned Goods,16.8,SUP-009,100,1000,Box of 24,6
+SKU-0054,Product Six 61,Cleaning,58.99,SUP-007,10,180,Pallet,2
+SKU-0055,Product Listen 34,Meat,37.24,SUP-018,50,950,Box of 12,3
+SKU-0056,Product Society 32,Bakery,91.7,SUP-019,10,100,Single Unit,11
+SKU-0057,Product Though 82,Bakery,147.96,SUP-010,100,1300,Box of 12,7
+SKU-0058,Product Factor 99,Produce,34.54,SUP-012,10,100,Single Unit,11
+SKU-0059,Product Star 67,Bakery,62.78,SUP-001,100,1700,Box of 6,8
+SKU-0060,Product Memory 81,Meat,4.85,SUP-013,100,1400,Box of 24,1
+SKU-0061,Product Edge 36,Canned Goods,140.45,SUP-012,50,600,Box of 24,8
+SKU-0062,Product Less 10,Meat,138.72,SUP-005,10,120,Single Unit,10
+SKU-0063,Product Sell 37,Beverages,113.86,SUP-003,10,80,Pallet,7
+SKU-0064,Product Easy 35,Beverages,55.52,SUP-016,100,1500,Box of 12,12
+SKU-0065,Product Government 41,Produce,50.64,SUP-020,10,160,Pallet,7
+SKU-0066,Product Walk 70,Canned Goods,80.14,SUP-010,50,900,Pallet,12
+SKU-0067,Product Be 18,Bakery,95.03,SUP-018,50,650,Pallet,10
+SKU-0068,Product City 30,Beverages,106.15,SUP-008,10,80,Box of 6,4
+SKU-0069,Product Identify 89,Canned Goods,56.16,SUP-017,10,170,Box of 6,12
+SKU-0070,Product Claim 91,Meat,58.28,SUP-017,50,900,Box of 6,12
+SKU-0071,Product Difficult 9,Bakery,7.1,SUP-009,10,150,Box of 12,5
+SKU-0072,Product Join 53,Bakery,71.63,SUP-016,10,190,Box of 24,8
+SKU-0073,Product Give 70,Produce,25.37,SUP-015,10,120,Pallet,2
+SKU-0074,Product Man 54,Meat,101.3,SUP-014,10,150,Pallet,3
+SKU-0075,Product Assume 27,Cleaning,67.84,SUP-010,100,1100,Single Unit,10
+SKU-0076,Product There 54,Produce,116.26,SUP-007,50,950,Box of 24,11
+SKU-0077,Product Improve 99,Cleaning,61.24,SUP-008,50,650,Box of 24,8
+SKU-0078,Product Pattern 90,Meat,92.75,SUP-015,50,800,Box of 6,11
+SKU-0079,Product Again 98,Bakery,51.97,SUP-019,10,180,Box of 12,10
+SKU-0080,Product Parent 49,Meat,142.74,SUP-016,50,550,Single Unit,3
+SKU-0081,Product Me 1,Produce,45.5,SUP-002,100,500,Box of 12,6
+SKU-0082,Product Yes 46,Canned Goods,95.94,SUP-005,100,1100,Box of 12,3
+SKU-0083,Product Fire 97,Produce,131.55,SUP-006,10,130,Box of 24,2
+SKU-0084,Product In 54,Cleaning,95.88,SUP-004,50,650,Box of 6,13
+SKU-0085,Product Nothing 96,Beverages,55.59,SUP-011,100,600,Box of 12,9
+SKU-0086,Product Simple 70,Meat,7.4,SUP-008,100,2000,Single Unit,4
+SKU-0087,Product Such 78,Bakery,136.11,SUP-019,10,170,Box of 24,11
+SKU-0088,Product Water 29,Meat,127.72,SUP-007,50,900,Pallet,12
+SKU-0089,Product Method 29,Meat,54.93,SUP-003,100,1100,Pallet,6
+SKU-0090,Product Explain 56,Produce,141.55,SUP-009,100,1700,Pallet,1
+SKU-0091,Product Mention 4,Produce,116.53,SUP-008,100,500,Single Unit,5
+SKU-0092,Product Improve 44,Meat,122.24,SUP-002,50,800,Single Unit,12
+SKU-0093,Product Relate 87,Cleaning,3.53,SUP-001,50,950,Box of 6,8
+SKU-0094,Product Success 52,Bakery,107.04,SUP-010,10,100,Single Unit,4
+SKU-0095,Product Shake 22,Beverages,135.43,SUP-014,10,160,Box of 12,13
+SKU-0096,Product Though 60,Meat,35.93,SUP-004,10,180,Pallet,12
+SKU-0097,Product Wide 17,Cleaning,115.6,SUP-005,10,180,Box of 24,7
+SKU-0098,Product Prevent 69,Bakery,149.52,SUP-011,100,700,Single Unit,7
+SKU-0099,Product Agreement 51,Canned Goods,114.66,SUP-019,100,1900,Box of 12,6
+SKU-0100,Product Person 73,Canned Goods,140.92,SUP-006,10,200,Box of 6,4
+SKU-0101,Product Recognize 4,Beverages,124.73,SUP-014,50,400,Box of 24,14
+SKU-0102,Product Because 83,Canned Goods,96.3,SUP-001,10,50,Box of 6,8
+SKU-0103,Product Later 18,Dairy,34.27,SUP-013,10,50,Box of 6,9
+SKU-0104,Product Trial 60,Cleaning,129.86,SUP-011,50,400,Box of 6,3
+SKU-0105,Product Court 7,Beverages,113.67,SUP-003,100,900,Single Unit,14
+SKU-0106,Product Ever 49,Meat,134.65,SUP-010,100,800,Single Unit,3
+SKU-0107,Product Generation 28,Beverages,34.34,SUP-012,50,350,Box of 12,7
+SKU-0108,Product Look 42,Dairy,87.92,SUP-018,10,60,Box of 6,13
+SKU-0109,Product Green 98,Beverages,39.33,SUP-014,100,500,Single Unit,5
+SKU-0110,Product Until 49,Beverages,37.4,SUP-016,100,900,Box of 24,11
+SKU-0111,Product Fall 97,Beverages,103.21,SUP-002,100,1200,Pallet,4
+SKU-0112,Product Theory 54,Dairy,32.65,SUP-005,100,1600,Box of 6,5
+SKU-0113,Product Entire 11,Bakery,120.63,SUP-009,100,1200,Single Unit,7
+SKU-0114,Product Many 3,Produce,85.67,SUP-004,10,180,Box of 24,12
+SKU-0115,Product So 70,Meat,80.87,SUP-014,50,500,Box of 24,5
+SKU-0116,Product Area 45,Bakery,52.22,SUP-012,100,800,Box of 24,12
+SKU-0117,Product Door 84,Bakery,53.34,SUP-008,100,1000,Box of 6,11
+SKU-0118,Product Authority 100,Cleaning,81.58,SUP-012,100,1000,Box of 24,7
+SKU-0119,Product Reach 6,Dairy,144.28,SUP-001,100,1300,Box of 6SKU-0121,Product End 26,Dairy,51.48,SUP-006,100,900,Box of 24,10
+SKU-0122,Product Those 3,Produce,128.68,SUP-009,100,1000,Box of 6,10
+SKU-0123,Product Pretty 20,Beverages,65.11,SUP-014,100,1200,Pallet,11
+SKU-0124,Product Edge 17,Produce,147.8,SUP-011,10,60,Box of 24,9
+SKU-0125,Product Material 86,Meat,33.49,SUP-007,10,170,Pallet,3
+SKU-0126,Product Building 73,Meat,76.87,SUP-010,100,1000,Box of 24,9
+SKU-0127,Product Yourself 28,Beverages,111.63,SUP-016,10,120,Pallet,4
+SKU-0128,Product Make 90,Beverages,56.24,SUP-017,10,180,Box of 6,4
+SKU-0129,Product Establish 99,Cleaning,56.03,SUP-015,10,80,Box of 6,3
+SKU-0130,Product Home 22,Bakery,71.81,SUP-016,50,850,Box of 24,14
+SKU-0131,Product Police 78,Meat,9.09,SUP-018,100,500,Box of 12,3
+SKU-0132,Product Small 92,Produce,65.95,SUP-011,50,650,Box of 24,3
+SKU-0133,Product Building 100,Beverages,76.16,SUP-009,10,200,Single Unit,9
+SKU-0134,Product Tell 21,Meat,56.19,SUP-013,50,700,Box of 6,7
+SKU-0135,Product Foreign 14,Cleaning,33.28,SUP-008,50,450,Box of 24,11
+SKU-0136,Product Particular 4,Produce,9.59,SUP-011,50,400,Box of 12,10
+SKU-0137,Product Woman 40,Canned Goods,141.83,SUP-013,50,250,Single Unit,11
+SKU-0138,Product Parent 87,Canned Goods,67.79,SUP-019,50,1000,Box of 12,14
+SKU-0139,Product Whatever 49,Canned Goods,70.24,SUP-014,100,1100,Box of 12,5
+SKU-0140,Product Industry 92,Beverages,8.85,SUP-010,50,400,Box of 12,8
+SKU-0141,Product Decide 10,Beverages,58.3,SUP-013,10,100,Box of 6,1
+SKU-0142,Product Person 89,Canned Goods,21.63,SUP-018,10,170,Single Unit,6
+SKU-0143,Product Then 81,Meat,113.83,SUP-018,10,170,Pallet,6
+SKU-0144,Product Eight 14,Produce,117.2,SUP-019,10,170,Box of 24,7
+SKU-0145,Product Same 99,Beverages,110.5,SUP-016,100,1700,Box of 12,8
+SKU-0146,Product Fish 88,Dairy,120.89,SUP-013,50,700,Pallet,7
+SKU-0147,Product Plan 16,Produce,112.48,SUP-020,100,700,Box of 24,3
+SKU-0148,Product Style 73,Meat,18.28,SUP-002,50,650,Pallet,11
+SKU-0149,Product Stay 6,Bakery,32.32,SUP-017,100,600,Box of 6,8
+SKU-0150,Product Hand 69,Produce,113.26,SUP-005,10,180,Pallet,5
+SKU-0151,Product Later 85,Meat,70.26,SUP-011,10,70,Single Unit,14
+SKU-0152,Product Hospital 9,Dairy,82.57,SUP-017,100,1800,Box of 6,11
+SKU-0153,Product Move 83,Bakery,11.92,SUP-010,100,900,Box of 6,2
+SKU-0154,Product Growth 2,Bakery,12.3,SUP-012,100,1300,Pallet,2
+SKU-0155,Product Time 54,Canned Goods,105.27,SUP-012,10,80,Single Unit,1
+SKU-0156,Product Test 63,Meat,146.5,SUP-002,100,1100,Box of 6,7
+SKU-0157,Product Born 56,Beverages,56.78,SUP-012,10,180,Box of 6,13
+SKU-0158,Product High 82,Beverages,119.01,SUP-014,50,500,Box of 6,8
+SKU-0159,Product Vote 59,Bakery,58.44,SUP-003,10,110,Box of 12,14
+SKU-0160,Product Second 20,Bakery,138.13,SUP-012,50,550,Box of 12,7
+SKU-0161,Product Learn 23,Meat,122.64,SUP-020,100,1700,Pallet,3
+SKU-0162,Product Similar 67,Beverages,68.64,SUP-005,10,190,Box of 6,2
+SKU-0163,Product Rather 35,Produce,135.61,SUP-010,10,50,Box of 12,2
+SKU-0164,Product Power 69,Beverages,119.99,SUP-001,10,120,Box of 24,14
+SKU-0165,Product Stage 62,Meat,48.28,SUP-010,10,60,Box of 24,14
+SKU-0166,Product Make 56,Produce,77.33,SUP-012,10,150,Box of 12,7
+SKU-0167,Product That 94,Cleaning,52.76,SUP-001,100,1900,Pallet,13
+SKU-0168,Product Person 35,Canned Goods,90.75,SUP-005,50,900,Box of 12,5
+SKU-0169,Product Future 32,Beverages,95.87,SUP-001,50,1000,Box of 24,14
+SKU-0170,Product Then 12,Meat,61.2,SUP-018,10,170,Single Unit,8
+SKU-0171,Product Family 58,Meat,89.09,SUP-011,10,180,Single Unit,1
+SKU-0172,Product Either 97,Dairy,41.03,SUP-004,100,900,Box of 12,7
+SKU-0173,Product Majority 73,Canned Goods,96.55,SUP-018,10,170,Single Unit,12
+SKU-0174,Product Poor 86,Dairy,6.27,SUP-001,100,1600,Pallet,2
+SKU-0175,Product Hundred 44,Meat,85.79,SUP-004,50,900,Single Unit,11
+SKU-0176,Product Air 64,Meat,112.76,SUP-004,100,1200,Pallet,6
+SKU-0177,Product Today 42,Produce,37.12,SUP-019,50,1000,Box of 6,3
+SKU-0178,Product Court 63,Beverages,94.27,SUP-017,50,1000,Pallet,1
+SKU-0179,Product Difference 46,Meat,9.46,SUP-006,50,300,Pallet,14
+SKU-0180,Product Subject 34,Canned Goods,60.75,SUP-010,10,60,Box of 12,8
+SKU-0181,Product Grow 36,Canned Goods,49.33,SUP-014,10,120,Box of 12,14
+SKU-0182,Product Up 77,Dairy,137.16,SUP-005,10,200,Box of 12,14
+SKU-0183,Product Science 36,Meat,67.92,SUP-013,10,60,Pallet,10
+SKU-0184,Product Only 2,Beverages,37.09,SUP-007,10,160,Pallet,14
+SKU-0185,Product Nation 25,Meat,101.31,SUP-003,50,1000,Single Unit,8
+SKU-0186,Product Bed 31,Meat,100.76,SUP-001,100,1600,Box of 24,8
+SKU-0187,Product Service 53,Cleaning,79.79,SUP-012,100,1200,Box of 6,5
+SKU-0188,Product Middle 72,Dairy,59.63,SUP-011,50,600,Single Unit,12
+SKU-0189,Product Son 31,Dairy,145.55,SUP-004,10,110,Single Unit,5
+SKU-0190,Product Rock 61,Dairy,136.92,SUP-014,10,130,Box of 6,13
+SKU-0191,Product Race 92,Bakery,46.15,SUP-015,100,1700,Pallet,1
+SKU-0192,Product Military 58,Beverages,116.46,SUP-005,10,190,Single Unit,1
+SKU-0193,Product Structure 3,Bakery,111.37,SUP-014,100,500,Single Unit,4
+SKU-0194,Product Better 38,Produce,102.74,SUP-011,10,200,Box of 12,4
+SKU-0195,Product Do 52,Beverages,86.49,SUP-015,10,140,Box of 6,10
+SKU-0196,Product Role 32,Cleaning,131.65,SUP-013,10,70,Box of 12,10
+SKU-0197,Product Follow 85,Cleaning,114.07,SUP-020,50,550,Box of 12,11
+SKU-0198,Product Party 48,Produce,61.9,SUP-011,50,300,Single Unit,1
+SKU-0199,Product Material 71,Cleaning,91.34,SUP-018,10,60,Single Unit,13
+SKU-0200,Product Nice 45,Dairy,85.91,SUP-019,10,60,Box of 6,10
+SKU-0201,Product Large 96,Beverages,116.9,SUP-017,100,2000,Single Unit,3
+SKU-0202,Product Oil 43,Produce,99.26,SUP-003,10,50,Box of 24,2
+SKU-0203,Product He 90,Beverages,4.38,SUP-002,50,800,Box of 24,4
+SKU-0204,Product Long 35,Produce,79.06,SUP-016,50,650,Box of 6,12
+SKU-0205,Product Follow 33,Canned Goods,72.94,SUP-012,100,700,Single Unit,2
+SKU-0206,Product During 16,Dairy,108.32,SUP-012,100,1400,Box of 6,1
+SKU-0207,Product Set 25,Beverages,112.15,SUP-012,10,150,Single Unit,4
+SKU-0208,Product Four 16,Bakery,54.27,SUP-018,50,250,Single Unit,10
+SKU-0209,Product Situation 69,Cleaning,123.64,SUP-016,10,130,Pallet,6
+SKU-0210,Product Sound 89,Dairy,83.92,SUP-014,10,180,Box of 12,12
+SKU-0211,Product Crime 25,Cleaning,115.6,SUP-003,50,350,Single Unit,12
+SKU-0212,Product Direction 95,Cleaning,62.17,SUP-014,50,550,Box of 24,5
+SKU-0213,Product Member 36,Meat,4.74,SUP-020,10,100,Pallet,6
+SKU-0214,Product Shake 76,Cleaning,80.19,SUP-016,50,250,Box of 24,10
+SKU-0215,Product Soon 68,Cleaning,10.98,SUP-009,50,300,Pallet,4
+SKU-0216,Product Picture 37,Cleaning,75.76,SUP-008,50,400,Box of 6,2
+SKU-0217,Product Black 25,Produce,93.82,SUP-003,50,850,Single Unit,12
+SKU-0218,Product Fine 30,Cleaning,88.74,SUP-015,10,200,Box of 24,5
+SKU-0219,Product Herself 23,Produce,60.28,SUP-002,50,950,Box of 24,6
+SKU-0220,Product Five 2,Meat,77.9,SUP-012,50,850,Box of 12,12
+SKU-0221,Product Section 69,Cleaning,95.33,SUP-018,10,160,Box of 12,5
+SKU-0222,Product Card 36,Cleaning,70.46,SUP-009,50,1000,Box of 6,6
+SKU-0223,Product Answer 7,Bakery,50.04,SUP-011,100,700,Box of 12,11
+SKU-0224,Product On 38,Cleaning,95.7,SUP-004,50,250,Single Unit,10
+SKU-0225,Product Save 17,Dairy,84.15,SUP-006,10,180,Box of 12,2
+SKU-0226,Product Pull 97,Meat,3.62,SUP-015,10,180,Single Unit,1
+SKU-0227,Product Military 14,Cleaning,14.64,SUP-007,10,60,Pallet,1
+SKU-0228,Product Turn 2,Bakery,106.41,SUP-005,10,170,Box of 24,8
+SKU-0229,Product Painting 37,Beverages,61.29,SUP-001,50,450,Single Unit,6
+SKU-0230,Product Manager 62,Cleaning,20.26,SUP-010,50,500,Box of 24,12
+SKU-0231,Product Let 44,Produce,85.26,SUP-007,10,70,Box of 24,4
+SKU-0232,Product Create 7,Cleaning,71.07,SUP-014,50,750,Pallet,14
+SKU-0233,Product Entire 62,Meat,58.42,SUP-014,50,900,Pallet,11
+SKU-0234,Product Build 9,Cleaning,52.63,SUP-006,50,600,Box of 6,6
+SKU-0235,Product Institution 63,Canned Goods,51.7,SUP-020,10,170,Pallet,13
+SKU-0236,Product Back 74,Cleaning,146.39,SUP-007,50,750,Single Unit,3
+SKU-0237,Product Professional 88,Produce,128.47,SUP-016,50,350,Single Unit,3
+SKU-0238,Product Argue 20,Cleaning,127.36,SUP-014,50,700,Box of 24,10
+SKU-0239,Product Church 73,Meat,108.68,SUP-011,10,170,Box of 6,11
+SKU-0240,Product Fly 11,Cleaning,29.21,SUP-007,100,900,Box of 24,10
+SKU-0241,Product Energy 16,BakerySKU-0240,Product Fly 11,Dairy,57.25,SUP-004,100,2000,Box of 6,14
+SKU-0241,Product Energy 16,Bakery,72.82,SUP-013,100,700,Box of 6,4
+SKU-0242,Product Open 98,Dairy,82.46,SUP-012,50,950,Single Unit,5
+SKU-0243,Product Keep 78,Bakery,112.92,SUP-005,100,600,Box of 6,7
+SKU-0244,Product Pick 80,Dairy,78.35,SUP-004,100,1800,Box of 6,9
+SKU-0245,Product Draw 100,Canned Goods,59.77,SUP-009,10,170,Pallet,3
+SKU-0246,Product Necessary 49,Meat,141.86,SUP-001,100,1100,Single Unit,6
+SKU-0247,Product Little 57,Produce,144.67,SUP-015,10,130,Box of 6,1
+SKU-0248,Product Finish 76,Bakery,99.78,SUP-015,50,350,Box of 12,1
+SKU-0249,Product Laugh 40,Bakery,142.42,SUP-005,10,140,Pallet,13
+SKU-0250,Product Outside 80,Meat,89.75,SUP-012,100,2000,Pallet,1
+SKU-0251,Product As 79,Cleaning,37.38,SUP-011,10,160,Box of 12,11
+SKU-0252,Product Sister 13,Beverages,96.36,SUP-014,10,70,Box of 6,13
+SKU-0253,Product Yourself 98,Cleaning,121.67,SUP-002,10,150,Box of 24,6
+SKU-0254,Product Despite 81,Beverages,124.79,SUP-014,10,170,Box of 12,10
+SKU-0255,Product Development 34,Meat,129.47,SUP-011,50,350,Pallet,4
+SKU-0256,Product Recent 11,Cleaning,87.93,SUP-005,100,1700,Pallet,7
+SKU-0257,Product Close 31,Produce,126.9,SUP-016,10,140,Box of 24,6
+SKU-0258,Product Consumer 71,Meat,39.79,SUP-010,50,350,Pallet,3
+SKU-0259,Product Bad 21,Beverages,118.32,SUP-004,50,600,Box of 24,14
+SKU-0260,Product Able 53,Bakery,55.5,SUP-011,100,1600,Single Unit,2
+SKU-0261,Product Little 89,Meat,96.8,SUP-008,10,160,Pallet,11
+SKU-0262,Product Phone 61,Canned Goods,123.75,SUP-009,50,950,Single Unit,12
+SKU-0263,Product Film 5,Produce,86.39,SUP-010,10,100,Pallet,9
+SKU-0264,Product Each 37,Cleaning,133.57,SUP-005,10,80,Pallet,10
+SKU-0265,Product Seat 37,Produce,52.92,SUP-018,50,450,Box of 12,2
+SKU-0266,Product Scientist 59,Bakery,21.06,SUP-014,100,800,Box of 12,8
+SKU-0267,Product Avoid 88,Dairy,53.64,SUP-002,10,130,Pallet,3
+SKU-0268,Product East 34,Cleaning,72.63,SUP-013,50,450,Box of 12,12
+SKU-0269,Product Store 81,Cleaning,117.12,SUP-009,50,850,Pallet,2
+SKU-0270,Product Perform 85,Beverages,134.13,SUP-010,10,90,Single Unit,8
+SKU-0271,Product Summer 26,Dairy,96.72,SUP-004,10,110,Pallet,12
+SKU-0272,Product Large 15,Bakery,114.32,SUP-011,10,110,Box of 24,11
+SKU-0273,Product Off 29,Dairy,76.09,SUP-004,100,900,Box of 12,4
+SKU-0274,Product Raise 20,Bakery,54.93,SUP-010,50,900,Single Unit,13
+SKU-0275,Product When 35,Bakery,131.98,SUP-015,50,350,Box of 6,11
+SKU-0276,Product The 19,Meat,56.1,SUP-020,100,700,Box of 6,13
+SKU-0277,Product Away 8,Produce,58.52,SUP-003,100,1500,Box of 12,3
+SKU-0278,Product Company 40,Bakery,83.19,SUP-006,50,300,Box of 6,4
+SKU-0279,Product Physical 96,Produce,147.52,SUP-001,100,900,Box of 6,13
+SKU-0280,Product Thank 73,Canned Goods,141.22,SUP-002,50,250,Box of 6,7
+SKU-0281,Product Will 37,Produce,19.84,SUP-012,10,80,Single Unit,10
+SKU-0282,Product Leg 16,Cleaning,77.58,SUP-004,50,250,Box of 6,13
+SKU-0283,Product Management 89,Canned Goods,108.0,SUP-011,100,1900,Box of 6,5
+SKU-0284,Product Fly 90,Beverages,123.85,SUP-014,100,700,Box of 12,13
+SKU-0285,Product Interesting 35,Produce,40.98,SUP-020,50,400,Box of 6,7
+SKU-0286,Product Month 70,Beverages,81.11,SUP-004,50,250,Box of 12,14
+SKU-0287,Product Minute 57,Cleaning,139.37,SUP-016,100,1400,Single Unit,9
+SKU-0288,Product Be 77,Bakery,56.69,SUP-020,10,180,Box of 6,2
+SKU-0289,Product Among 56,Bakery,119.8,SUP-001,100,1500,Box of 6,4
+SKU-0290,Product Simple 42,Meat,90.62,SUP-009,10,180,Single Unit,8
+SKU-0291,Product Pm 33,Bakery,95.99,SUP-013,50,600,Pallet,11
+SKU-0292,Product Agree 12,Dairy,131.23,SUP-005,50,700,Pallet,10
+SKU-0293,Product Drop 87,Bakery,95.86,SUP-001,50,850,Box of 12,10
+SKU-0294,Product Think 74,Bakery,42.22,SUP-002,10,90,Box of 24,6
+SKU-0295,Product People 3,Bakery,113.67,SUP-017,10,70,Single Unit,10
+SKU-0296,Product Southern 87,Cleaning,137.22,SUP-005,50,300,Box of 12,10
+SKU-0297,Product Term 35,Cleaning,8.69,SUP-015,10,110,Box of 12,9
+SKU-0298,Product Part 6,Bakery,91.3,SUP-008,100,1900,Box of 6,5
+SKU-0299,Product Source 97,Cleaning,125.33,SUP-002,50,250,Box of 12,8
+SKU-0300,Product Continue 61,Dairy,117.32,SUP-019,10,160,Single Unit,11
