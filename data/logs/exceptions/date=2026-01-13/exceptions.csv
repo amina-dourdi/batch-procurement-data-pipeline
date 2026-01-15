@@ -1,0 +1,2 @@
+timestamp,batch_date,rule_broken,entity_id,details,severity
+2026-01-13T23:42:48.949850,2026-01-13,PIPELINE_CRASH,SYSTEM,"failed to execute: HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /v1/statement (Caused by NewConnectionError(""HTTPConnection(host='127.0.0.1', port=8080): Failed to establish a new connection: [Errno 111] Connection refused""))",HIGH

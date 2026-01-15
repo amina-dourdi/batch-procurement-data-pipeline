@@ -1,2 +1,3 @@
 timestamp,batch_date,rule_broken,entity_id,details,severity
 2026-01-14T17:37:25.309265,2026-01-14,PIPELINE_CRASH,SYSTEM,"not enough values to unpack (expected 4, got 1)",HIGH
+2026-01-14T15:34:55.874086,2026-01-14,PIPELINE_CRASH,SYSTEM,"TrinoExternalError(type=EXTERNAL, name=HIVE_CANNOT_OPEN_SPLIT, message=""Error opening Hive split hdfs://namenode:9000/raw/stock/2026-01-14/stock.avro (offset=0, length=10542) using org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat: Not an Avro data file."", query_id=20260114_101436_00095_wcwgz)",HIGH
