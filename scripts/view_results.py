@@ -3,7 +3,7 @@ import os
 from datetime import date
 from trino.dbapi import connect
 
-TRINO_HOST = os.environ["TRINO_HOST"]
+TRINO_HOST = os.getenv("TRINO_HOST",'trino')
 TRINO_PORT = int(os.getenv("TRINO_PORT", 8080))
 TRINO_USER = os.getenv("TRINO_USER", "admin")
 TRINO_CATALOG = os.getenv("TRINO_CATALOG", "hive")
@@ -12,7 +12,7 @@ TRINO_SCHEMA = os.getenv("TRINO_SCHEMA", "default")
 
 
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
-TABLE_NAME = f"hive.default.supplier_orders_{RUN_DATE.replace('-', '_')}"
+TABLE_NAME = f"hive.processed.aggregated_orders_{RUN_DATE.replace('-', '_')}"
 
 print(f"---  INSPECTING FINAL RESULTS: {TABLE_NAME} ---")
 
@@ -27,7 +27,7 @@ try:
     cur = conn.cursor()
     
     print(" Querying data...")
-    cur.execute(f"SELECT * FROM {TABLE_NAME} ORDER BY supplier_id, sku LIMIT 20")
+    cur.execute(f"SELECT * FROM {TABLE_NAME}  ")
     rows = cur.fetchall()
     
     if rows:

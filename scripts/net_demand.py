@@ -5,7 +5,7 @@ from hdfs_client import WebHDFSClient
 
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
 
-TRINO_HOST = os.environ["TRINO_HOST"]
+TRINO_HOST = os.getenv("TRINO_HOST",'trino')
 TRINO_PORT = int(os.getenv("TRINO_PORT", 8080))
 TRINO_USER = os.getenv("TRINO_USER", "admin")
 TRINO_CATALOG = os.getenv("TRINO_CATALOG", "hive")

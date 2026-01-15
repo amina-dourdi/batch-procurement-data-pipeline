@@ -5,11 +5,13 @@ from datetime import date
 from trino.dbapi import connect
 from hdfs_client import WebHDFSClient
 from pg_client import read_sql_df 
+from collections import defaultdict
+import json
 
 RUN_DATE = os.getenv("RUN_DATE") or date.today().isoformat()
 DATA_ROOT = os.getenv("DATA_ROOT", "/app/data")
 
-TRINO_HOST = os.environ["TRINO_HOST"]
+TRINO_HOST = os.getenv("TRINO_HOST",'trino')
 TRINO_PORT = int(os.getenv("TRINO_PORT", 8080))
 TRINO_USER = os.getenv("TRINO_USER", "admin")
 TRINO_CATALOG = os.getenv("TRINO_CATALOG", "hive")
@@ -115,6 +117,69 @@ def main(guard=None):
     
     try:
         cur.execute(query_final)
+
+        # Added
+
+        OUTPUT_LOCAL_DIR = f"{DATA_ROOT}/output/supplier_orders/{RUN_DATE}"  # Local copy
+        OUTPUT_HDFS_DIR = f"/output/supplier_orders/{RUN_DATE}"       # HDFS copy
+
+        os.makedirs(OUTPUT_LOCAL_DIR, exist_ok=True)
+        hdfs.mkdirs(OUTPUT_HDFS_DIR)  # Make sure the HDFS folder exists
+        cur.execute(f"""
+        SELECT run_date, supplier_id, sku, quantity
+        FROM {table_dest}
+        """)
+
+        supplier_orders = defaultdict(list)
+        rows_table = cur.fetchall()  # After running your final query
+
+        for run_date, supplier_id, sku, qty in rows_table:
+            supplier_orders[supplier_id].append({
+                "sku": sku,
+                "quantity": int(qty)
+            })
+
+        # Write each supplier file locally AND to HDFS
+        for supplier_id, items in supplier_orders.items():
+            order = {
+                "supplier_id": supplier_id,
+                "run_date": RUN_DATE,
+                "items": items
+            }
+
+            # Local file
+            local_file_path = f"{OUTPUT_LOCAL_DIR}/{supplier_id}.json"
+            with open(local_file_path, "w") as f:
+                json.dump(order, f, indent=2)
+
+            # HDFS file
+            hdfs_file_path = f"{OUTPUT_HDFS_DIR}/{supplier_id}.json"
+            hdfs.put_file(local_file_path, hdfs_file_path, overwrite=True)
+##########
+        
+        print(rows_table)
+        # for run_date, supplier_id, sku, qty in rows_table:
+        #     supplier_orders[supplier_id].append({
+        #         "sku": sku,
+        #         "quantity": int(qty)
+        #     })
+        print(supplier_orders)
+        # OUTPUT_DIR = f"/tmp/supplier_orders/{RUN_DATE}"
+        # os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+        # for supplier_id, items in supplier_orders.items():
+        #     order = {
+        #         "supplier_id": supplier_id,
+        #         "run_date": RUN_DATE,
+        #         "items": items
+        #     }
+
+        #     file_path = f"{OUTPUT_DIR}/{supplier_id}.json"
+        #     with open(file_path, "w") as f:
+        #         json.dump(order, f, indent=2)
+
+        #     print(f"✅ File created: {file_path}")
+        # ###
         print(f" Success! Orders generated in HDFS: {hdfs_target_dir}")
     except Exception as e:
         print(f" Error in Supplier Orders generation: {e}")
