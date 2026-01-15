@@ -238,10 +238,3 @@ It is a strong **portfolio project** for:
 * Add **Kafka** for streaming ingestion
 * Add **Great Expectations** for data quality
 
----
-
-If you want, I can now:
-
-* make a **short README version** for school submission,
-* write a **French version**,
-* or create a **README + architecture diagram** for your report 📊
